@@ -6,6 +6,8 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
+import systemRouter from './modules/system'
+
 /**
  * constantRoutes
  * a base page that does not have permission requirements
@@ -37,8 +39,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  systemRouter
 ]
 
 const createRouter = () => new Router({

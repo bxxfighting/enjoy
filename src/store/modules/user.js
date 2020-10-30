@@ -23,7 +23,7 @@ const mutations = {
   SET_MODS: (state, mods) => {
     state.mods = mods
   },
-  SET_PERMISIONS: (state, permissions) => {
+  SET_PERMISSIONS: (state, permissions) => {
     state.permissions = permissions
   }
 }
@@ -54,12 +54,12 @@ const actions = {
           reject('Verification failed, please Login again.')
         }
 
-        const { mods, permissions, id, name } = data
+        const { mods, permissions, user } = data
 
         commit('SET_MODS', mods)
         commit('SET_PERMISSIONS', permissions)
-        commit('SET_NAME', name)
-        commit('SET_ID', id)
+        commit('SET_NAME', user.name)
+        commit('SET_ID', user.id)
         resolve(data)
       }).catch(error => {
         reject(error)
