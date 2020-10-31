@@ -1,6 +1,6 @@
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo } from '@/api/system/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import router, { resetRouter } from '@/router'
+import { resetRouter } from '@/router'
 
 const state = {
   token: getToken(),
@@ -15,7 +15,7 @@ const mutations = {
     state.token = token
   },
   SET_ID: (state, id) => {
-    state.id = id 
+    state.id = id
   },
   SET_NAME: (state, name) => {
     state.name = name
