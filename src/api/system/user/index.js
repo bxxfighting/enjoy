@@ -57,6 +57,22 @@ export function getUserListApi(data) {
   })
 }
 
+export function getUserRoleListApi(data) {
+  return request({
+    url: url.getUserRoleListUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getUserDepartmentListApi(data) {
+  return request({
+    url: url.getUserDepartmentListUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getUserApi(data) {
   return request({
     url: url.getUserUrl,

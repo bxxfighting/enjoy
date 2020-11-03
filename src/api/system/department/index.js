@@ -40,3 +40,27 @@ export function getDepartmentApi(data) {
     data
   })
 }
+
+export function createDepartmentUserApi(data) {
+  return request({
+    url: url.createDepartmentUserUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteDepartmentUserApi(data) {
+  return request({
+    url: url.deleteDepartmentUserUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getDepartmentUserListApi(data) {
+  return request({
+    url: url.getDepartmentUserListUrl,
+    method: 'post',
+    data
+  })
+}

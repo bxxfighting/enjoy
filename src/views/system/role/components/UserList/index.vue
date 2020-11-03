@@ -1,42 +1,28 @@
 <template>
-  <div v-loading="loading" class="app-container">
+  <div>
     <el-card>
       <div slot="header">
-        <span> 模块列表({{ obj.total }}) </span>
+        <span> 用户列表({{ obj.total }}) </span>
         <el-button icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj"> 添加 </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column
-            prop="name"
-            label="名称"
-          />
-          <el-table-column
-            prop="sign"
-            label="唯一标识"
-          >
+          <el-table-column prop="user.name" label="名称" />
+          <el-table-column prop="user.username" label="用户名">
             <template slot-scope="{row}">
-              <CopyField :value="row.sign" />
+              <CopyField :value="row.user.username" />
             </template>
           </el-table-column>
-          <el-table-column
-            prop="rank"
-            label="排序值"
-          />
-          <el-table-column
-            prop="remark"
-            label="备注"
-          />
-          <el-table-column
-            fixed="right"
-            label="操作"
-            width="160"
-          >
+          <el-table-column prop="user.email" label="邮箱" />
+          <el-table-column prop="user.phone" label="手机号" />
+          <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
-              <el-button size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
-                编辑
-              </el-button>
-              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
+              <router-link
+                :to="{name: 'UserDetail', params:{ id: row.user.id }}"
+              >
+                <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
+              </router-link>
+              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.user.id)">
                 <el-button slot="reference" size="mini" type="text">
                   删除
                 </el-button>
@@ -60,30 +46,33 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
-import url from '@/api/system/mod/url'
-import {
-  deleteModApi as deleteObjApi,
-  getModListApi as getObjListApi
-} from '@/api/system/mod'
 import ObjDialog from './components/ObjDialog'
+import {
+  getRoleUserListApi as getObjListApi,
+  deleteRoleUserApi as deleteObjApi,
+} from '@/api/system/role'
 export default {
-  name: 'Mod',
-  components: { Pagination, ObjDialog, CopyField },
+  name: 'UserList',
   directives: { permission },
+  components: { Pagination, CopyField, ObjDialog },
+  props: {
+    objId: {
+      required: true,
+      type: String
+    }
+  },
   data() {
     return {
-      url,
-      loading: false,
       obj: {
+        loading: false,
         total: 0,
         dataList: [],
-        obj_id: null,
         filter: {
           page_num: 1,
-          page_size: 10
+          page_size: 20
         },
         form: {
-          obj_id: null,
+          obj_id: this.objId,
           show: false,
           status: 'create'
         }
@@ -98,29 +87,26 @@ export default {
   },
   methods: {
     getObjList() {
-      this.loading = true
+      this.obj.loading = true
       const data = this.obj.filter
+      data['obj_id'] = parseInt(this.objId)
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
           this.obj.total = resp.data.total
         }
-        this.loading = false
+        this.obj.loading = false
       })
     },
     handleCreateObj() {
       this.obj.form.status = 'create'
       this.obj.form.show = true
     },
-    handleUpdateObj(row) {
-      this.obj.form.obj_id = row.id
-      this.obj.form.status = 'update'
-      this.obj.form.show = true
-    },
     deleteObj(obj_id) {
       this.loading = true
       const data = {
-        obj_id: parseInt(obj_id)
+        role_id: parseInt(this.objId),
+        user_id: obj_id
       }
       deleteObjApi(data).then(resp => {
         if (resp.code === 0) {

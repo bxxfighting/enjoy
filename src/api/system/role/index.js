@@ -40,3 +40,27 @@ export function getRoleApi(data) {
     data
   })
 }
+
+export function createRoleUserApi(data) {
+  return request({
+    url: url.createRoleUserUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteRoleUserApi(data) {
+  return request({
+    url: url.deleteRoleUserUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getRoleUserListApi(data) {
+  return request({
+    url: url.getRoleUserListUrl,
+    method: 'post',
+    data
+  })
+}

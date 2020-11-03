@@ -3,7 +3,10 @@ const url = {
     updateRoleUrl: '/api/v1/account/role/update/',
     deleteRoleUrl: '/api/v1/account/role/delete/',
     getRoleListUrl: '/api/v1/account/role/list/',
-    getRoleUrl: '/api/v1/account/role/'
+    getRoleUrl: '/api/v1/account/role/',
+    createRoleUserUrl: '/api/v1/account/role/user/create/',
+    deleteRoleUserUrl: '/api/v1/account/role/user/delete/',
+    getRoleUserListUrl: '/api/v1/account/role/user/list/',
 }
 
 export default url

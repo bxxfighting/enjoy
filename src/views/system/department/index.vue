@@ -14,7 +14,11 @@
           <el-table-column
             prop="sign"
             label="唯一标识"
-          />
+          >
+            <template slot-scope="{row}">
+              <CopyField :value="row.sign" />
+            </template>
+          </el-table-column>
           <el-table-column
             prop="remark"
             label="备注"
@@ -25,6 +29,11 @@
             width="160"
           >
             <template slot-scope="{row}">
+              <router-link
+                :to="{name: 'DepartmentDetail', params:{ id: row.id }}"
+              >
+                <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
+              </router-link>
               <el-button size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
                 编辑
               </el-button>
@@ -51,6 +60,7 @@
 <script>
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
+import CopyField from '@/components/Field/CopyField'
 import url from '@/api/system/department/url'
 import {
   deleteDepartmentApi as deleteObjApi, 
@@ -58,8 +68,8 @@ import {
 } from '@/api/system/department'
 import ObjDialog from './components/ObjDialog'
 export default {
-  name: 'DepartmentList',
-  components: { Pagination, ObjDialog },
+  name: 'Department',
+  components: { Pagination, ObjDialog, CopyField },
   directives: { permission },
   data() {
     return {

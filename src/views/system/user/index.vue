@@ -7,8 +7,12 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="username" label="用户名" />
-          <el-table-column prop="name" label="名称" />
+          <el-table-column prop="username" label="用户名">
+            <template slot-scope="{row}">
+              <CopyField :value="row.username" />
+            </template>
+          </el-table-column>
+          <el-table-column prop="name" label="名称"/>
           <el-table-column prop="email" label="邮箱" />
           <el-table-column prop="phone" label="手机号" />
           <el-table-column
@@ -17,6 +21,11 @@
             width="160"
           >
             <template slot-scope="{row}">
+              <router-link
+                :to="{name: 'UserDetail', params:{ id: row.id }}"
+              >
+                <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
+              </router-link>
               <el-button size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
                 编辑
               </el-button>
@@ -43,6 +52,7 @@
 <script>
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
+import CopyField from '@/components/Field/CopyField'
 import url from '@/api/system/user/url'
 import {
   deleteUserApi as deleteObjApi,
@@ -50,8 +60,8 @@ import {
 } from '@/api/system/user'
 import ObjDialog from './components/ObjDialog'
 export default {
-  name: 'UserList',
-  components: { Pagination, ObjDialog },
+  name: 'User',
+  components: { Pagination, ObjDialog, CopyField },
   directives: { permission },
   data() {
     return {

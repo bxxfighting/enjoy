@@ -6,6 +6,8 @@ const url = {
   updateUserUrl: '/api/v1/account/user/update/',
   deleteUserUrl: '/api/v1/account/user/delete/',
   getUserListUrl: '/api/v1/account/user/list/',
+  getUserRoleListUrl: '/api/v1/account/user/role/list/',
+  getUserDepartmentListUrl: '/api/v1/account/user/department/list/',
   getUserUrl: '/api/v1/account/user/'
 }
 
