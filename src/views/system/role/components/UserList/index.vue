@@ -49,7 +49,7 @@ import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
 import {
   getRoleUserListApi as getObjListApi,
-  deleteRoleUserApi as deleteObjApi,
+  deleteRoleUserApi as deleteObjApi
 } from '@/api/system/role'
 export default {
   name: 'UserList',

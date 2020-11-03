@@ -63,8 +63,8 @@ import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
 import url from '@/api/system/department/url'
 import {
-  deleteDepartmentApi as deleteObjApi, 
-  getDepartmentListApi as getObjListApi 
+  deleteDepartmentApi as deleteObjApi,
+  getDepartmentListApi as getObjListApi
 } from '@/api/system/department'
 import ObjDialog from './components/ObjDialog'
 export default {

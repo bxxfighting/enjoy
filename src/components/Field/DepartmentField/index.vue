@@ -1,5 +1,5 @@
 <template>
-  <el-select v-model="obj_id" @change="changeObj" >
+  <el-select v-model="obj_id" placeholder="请选择部门" @change="changeObj">
     <el-option
       v-for="item in obj.dataList"
       :key="item.id"

@@ -43,7 +43,7 @@ export default {
         update: '编辑'
       },
       form: {
-        user_id: null, 
+        user_id: null,
         role_id: parseInt(this.objId)
       },
       rules: {
@@ -62,21 +62,6 @@ export default {
         this.$refs['form'].clearValidate()
       })
       this.resetForm()
-      if (this.status === 'update') {
-        this.getObj()
-      }
-    },
-    getObj() {
-      this.loading = true
-      const data = {
-        obj_id: parseInt(this.objId)
-      }
-      getObjApi(data).then(resp => {
-        if (resp.code === 0) {
-          this.form = resp.data
-        }
-        this.loading = false
-      })
     },
     resetForm() {
       this.form.role_id = parseInt(this.objId)

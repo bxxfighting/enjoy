@@ -12,7 +12,7 @@
               <CopyField :value="row.username" />
             </template>
           </el-table-column>
-          <el-table-column prop="name" label="名称"/>
+          <el-table-column prop="name" label="名称" />
           <el-table-column prop="email" label="邮箱" />
           <el-table-column prop="phone" label="手机号" />
           <el-table-column

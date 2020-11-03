@@ -48,7 +48,7 @@ import {
   getUserDepartmentListApi as getObjListApi
 } from '@/api/system/user'
 import {
-  deleteDepartmentUserApi as deleteObjApi,
+  deleteDepartmentUserApi as deleteObjApi
 } from '@/api/system/department'
 export default {
   name: 'DepartmentList',

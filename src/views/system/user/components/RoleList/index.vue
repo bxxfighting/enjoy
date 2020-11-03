@@ -44,10 +44,10 @@ import permission from '@/directive/permission/index.js'
 import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
 import {
-  getUserRoleListApi as getObjListApi,
+  getUserRoleListApi as getObjListApi
 } from '@/api/system/user'
 import {
-  deleteRoleUserApi as deleteObjApi,
+  deleteRoleUserApi as deleteObjApi
 } from '@/api/system/role'
 export default {
   name: 'RoleList',

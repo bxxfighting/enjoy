@@ -24,7 +24,7 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'user', label: '用户列表' },
+          { name: 'user', label: '用户列表' }
         ],
         active: 'user'
       }

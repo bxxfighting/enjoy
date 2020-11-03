@@ -53,7 +53,7 @@ export default {
         update: '编辑'
       },
       form: {
-        user_id: parseInt(this.objId), 
+        user_id: parseInt(this.objId),
         department_id: null,
         typ: 20
       },
@@ -80,25 +80,10 @@ export default {
         this.$refs['form'].clearValidate()
       })
       this.resetForm()
-      if (this.status === 'update') {
-        this.getObj()
-      }
-    },
-    getObj() {
-      this.loading = true
-      const data = {
-        obj_id: parseInt(this.objId)
-      }
-      getObjApi(data).then(resp => {
-        if (resp.code === 0) {
-          this.form = resp.data
-        }
-        this.loading = false
-      })
     },
     resetForm() {
       this.form.user_id = parseInt(this.objId)
-      this.form.department_id = null
+      this.form.department_id = ''
       this.form.typ = 20
     },
     cancelDialog() {

@@ -50,7 +50,7 @@ import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
 import {
   getDepartmentUserListApi as getObjListApi,
-  deleteDepartmentUserApi as deleteObjApi,
+  deleteDepartmentUserApi as deleteObjApi
 } from '@/api/system/department'
 export default {
   name: 'UserList',

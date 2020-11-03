@@ -48,7 +48,7 @@ export default {
         name: '',
         fields: [
           { name: '标识', sign: 'sign', value: '' },
-          { name: '类型', sign: 'typ_desc', value: '' },
+          { name: '类型', sign: 'typ_desc', value: '' }
         ]
       }
     }
