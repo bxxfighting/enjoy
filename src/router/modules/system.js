@@ -54,6 +54,13 @@ const systemRouter = {
       component: () => import('@/views/system/mod'),
       name: 'Mod',
       meta: { title: '模块管理', noCache: false, icon: 'el-icon-set-up', sign: 'mod' }
+    },
+    {
+      path: 'mod/:id(\\d+)',
+      component: () => import('@/views/system/mod/detail'),
+      name: 'ModDetail',
+      hidden: true,
+      meta: { title: '模块详情', noCache: false, sign: 'mod' }
     }
   ]
 }
