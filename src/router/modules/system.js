@@ -21,7 +21,7 @@ const systemRouter = {
       component: () => import('@/views/system/user/detail'),
       name: 'UserDetail',
       hidden: true,
-      meta: { title: '用户详情', noCache: false, sign: 'user' }
+      meta: { title: '用户详情', noCache: false, sign: 'user', activeMenu: '/system/user' }
     },
     {
       path: 'role',
@@ -34,7 +34,7 @@ const systemRouter = {
       component: () => import('@/views/system/role/detail'),
       name: 'RoleDetail',
       hidden: true,
-      meta: { title: '角色详情', noCache: false, sign: 'role' }
+      meta: { title: '角色详情', noCache: false, sign: 'role', activeMenu: '/system/role' }
     },
     {
       path: 'department',
@@ -47,7 +47,7 @@ const systemRouter = {
       component: () => import('@/views/system/department/detail'),
       name: 'DepartmentDetail',
       hidden: true,
-      meta: { title: '部门详情', noCache: false, sign: 'department' }
+      meta: { title: '部门详情', noCache: false, sign: 'department', activeMenu: '/system/department' }
     },
     {
       path: 'mod',
@@ -60,7 +60,7 @@ const systemRouter = {
       component: () => import('@/views/system/mod/detail'),
       name: 'ModDetail',
       hidden: true,
-      meta: { title: '模块详情', noCache: false, sign: 'mod' }
+      meta: { title: '模块详情', noCache: false, sign: 'mod', activeMenu: '/system/mod' }
     }
   ]
 }
