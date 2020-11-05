@@ -11,14 +11,14 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="typ_desc" label="类型" />
-          <el-table-column prop="name" label="名称" />
+          <el-table-column prop="typ_desc" label="类型" width="120" />
+          <el-table-column prop="name" label="名称" width="200" />
           <el-table-column prop="sign" label="唯一标识">
             <template slot-scope="{row}">
               <CopyField :value="row.sign" />
             </template>
           </el-table-column>
-          <el-table-column prop="rank" label="排序值" />
+          <el-table-column prop="rank" label="排序值" width="100" />
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
