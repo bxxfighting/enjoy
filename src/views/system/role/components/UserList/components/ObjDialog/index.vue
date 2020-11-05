@@ -76,12 +76,10 @@ export default {
       }
     },
     createObj() {
-      console.log(this.objId)
       this.$refs['form'].validate((valid) => {
         if (valid) {
           this.loading = true
           const data = this.form
-          console.log(data)
           createObjApi(data).then(resp => {
             if (resp.code === 0) {
               this.$emit('update:show', false)

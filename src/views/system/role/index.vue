@@ -3,7 +3,11 @@
     <el-card>
       <div slot="header">
         <span> 角色列表({{ obj.total }}) </span>
-        <el-button icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj"> 添加 </el-button>
+        <el-button
+          v-permission="[url.createRoleUrl]"
+          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+          添加
+        </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -34,11 +38,15 @@
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
-              <el-button size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
+              <el-button
+                v-permission="[url.updateRoleUrl]"
+                size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
                 编辑
               </el-button>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button slot="reference" size="mini" type="text">
+                <el-button
+                  v-permission="[url.deleteRoleUrl]"
+                  slot="reference" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>

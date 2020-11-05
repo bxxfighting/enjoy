@@ -3,7 +3,11 @@
     <el-card>
       <div slot="header">
         <span> 部门列表({{ obj.total }}) </span>
-        <el-button icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj"> 添加 </el-button>
+        <el-button
+          v-permission="[url.createDepartmentUserUrl]"
+          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+          添加
+        </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -22,7 +26,9 @@
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.department.id)">
-                <el-button slot="reference" size="mini" type="text">
+                <el-button
+                  v-permission="[url.deleteDepartmentUserUrl]"
+                  slot="reference" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -44,6 +50,7 @@
 import permission from '@/directive/permission/index.js'
 import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
+import url from '@/api/system/department/url'
 import {
   getUserDepartmentListApi as getObjListApi
 } from '@/api/system/user'
@@ -62,6 +69,7 @@ export default {
   },
   data() {
     return {
+      url,
       obj: {
         loading: false,
         total: 0,

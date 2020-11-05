@@ -2,8 +2,6 @@ import request from '@/utils/request'
 import url from './url'
 
 export function login(data) {
-  console.log(url)
-  console.log(url.loginUserUrl)
   return request({
     url: url.loginUserUrl,
     method: 'post',

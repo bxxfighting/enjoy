@@ -3,6 +3,7 @@
     <div slot="header">
       <span>{{ obj.name }}</span>
       <el-button
+        v-permission="[url.updateModUrl]"
         style="float: right; padding: 3px 0"
         type="text"
         icon="el-icon-edit"
@@ -23,6 +24,7 @@
 import Tile from '@/components/Tile'
 import ObjDialog from '../ObjDialog'
 import permission from '@/directive/permission/index.js'
+import url from '@/api/system/mod/url'
 import {
   getModApi as getObjApi
 } from '@/api/system/mod'
@@ -39,6 +41,7 @@ export default {
   },
   data() {
     return {
+      url,
       obj: {
         loading: false,
         form: {

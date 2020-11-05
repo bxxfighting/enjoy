@@ -6,7 +6,7 @@ function checkPermission(el, binding) {
 
   if (value && value instanceof Array) {
     if (value.length > 0) {
-      const bind_permissions = value
+      const bindPermissions = value
 
       const hasPermission = permissions.some(permission => {
         return bindPermissions.includes(permission)

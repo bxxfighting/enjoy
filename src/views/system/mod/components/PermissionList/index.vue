@@ -3,7 +3,11 @@
     <el-card>
       <div slot="header">
         <span> 权限列表({{ obj.total }}) </span>
-        <el-button icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj"> 添加 </el-button>
+        <el-button
+          v-permission="[url.createPermissionUrl]"
+          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+          添加
+        </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -18,7 +22,9 @@
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button slot="reference" size="mini" type="text">
+                <el-button
+                  v-permission="[url.deletePermissionUrl]"
+                  slot="reference" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -40,6 +46,7 @@
 import permission from '@/directive/permission/index.js'
 import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
+import url from '@/api/system/permission/url'
 import {
   getPermissionListApi as getObjListApi
 } from '@/api/system/permission'
@@ -58,6 +65,7 @@ export default {
   },
   data() {
     return {
+      url,
       obj: {
         loading: false,
         total: 0,
