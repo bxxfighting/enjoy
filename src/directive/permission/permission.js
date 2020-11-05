@@ -8,7 +8,8 @@ function checkPermission(el, binding) {
     if (value.length > 0) {
       const bindPermissions = value
 
-      const hasPermission = permissions.some(permission => {
+      // 这里permissions.includes('admin')，超级管理员用户，默认会有一个admin权限，所以当permissions中包含admin权限时，就拥有所有权限
+      const hasPermission = permissions.includes('admin') || permissions.some(permission => {
         return bindPermissions.includes(permission)
       })
 
