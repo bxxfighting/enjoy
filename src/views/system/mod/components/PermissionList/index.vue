@@ -90,7 +90,7 @@ export default {
     getObjList() {
       this.obj.loading = true
       const data = this.obj.filter
-      data['obj_id'] = parseInt(this.objId)
+      data['mod_id'] = parseInt(this.objId)
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
