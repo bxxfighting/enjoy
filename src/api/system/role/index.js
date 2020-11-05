@@ -64,3 +64,27 @@ export function getRoleUserListApi(data) {
     data
   })
 }
+
+export function setRoleModApi(data) {
+  return request({
+    url: url.setRoleModUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function setRolePermissionApi(data) {
+  return request({
+    url: url.setRolePermissionUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getRoleModPermissionApi(data) {
+  return request({
+    url: url.getRoleModPermissionUrl,
+    method: 'post',
+    data
+  })
+}

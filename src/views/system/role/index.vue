@@ -1,5 +1,11 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <el-row :gutter="20">
+      <el-col
+        v-loading="obj.loading"
+        :span="8"
+        class="el-col-role"
+      >
     <el-card>
       <div slot="header">
         <span> 角色列表({{ obj.total }}) </span>
@@ -10,22 +16,17 @@
         </el-button>
       </div>
       <div>
-        <el-table :data="obj.dataList" style="width: 100%">
+        <el-table 
+          :data="obj.dataList"
+          style="width: 100%"
+          :highlight-current-row="true"
+          :current-row-key="obj.obj_id"
+          row-key="id"
+          @row-click="handleSelectObj"
+        >
           <el-table-column
             prop="name"
             label="名称"
-          />
-          <el-table-column
-            prop="sign"
-            label="唯一标识"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.sign" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="remark"
-            label="备注"
           />
           <el-table-column
             fixed="right"
@@ -56,6 +57,15 @@
         <pagination v-show="obj.total>0" :total="obj.total" :page.sync="obj.filter.page_num" :limit.sync="obj.filter.page_size" @pagination="getObjList" />
       </div>
     </el-card>
+    </el-col>
+    <el-col
+      :span="16"
+    >
+      <PermissionTable
+        :obj-id="String(obj.obj_id)"
+      />
+    </el-col>
+    </el-row>
     <ObjDialog
       :obj-id="String(obj.form.obj_id)"
       :status.sync="obj.form.status"
@@ -69,6 +79,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import PermissionTable from './components/PermissionTable'
 import url from '@/api/system/role/url'
 import {
   deleteRoleApi as deleteObjApi,
@@ -77,7 +88,7 @@ import {
 import ObjDialog from './components/ObjDialog'
 export default {
   name: 'Role',
-  components: { Pagination, ObjDialog, CopyField },
+  components: { Pagination, ObjDialog, CopyField, PermissionTable },
   directives: { permission },
   data() {
     return {
@@ -106,6 +117,9 @@ export default {
     this.getObjList()
   },
   methods: {
+    handleSelectObj(row) {
+      this.obj.obj_id = row.id
+    },
     getObjList() {
       this.loading = true
       const data = this.obj.filter
@@ -113,6 +127,9 @@ export default {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
           this.obj.total = resp.data.total
+          if (resp.data.data_list.length > 0) {
+            this.obj.obj_id = resp.data.data_list[0].id
+          }
         }
         this.loading = false
       })
@@ -145,3 +162,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.el-col-role {
+  min-width: 260px;
+}
+</style>
