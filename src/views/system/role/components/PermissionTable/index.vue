@@ -105,6 +105,7 @@ export default {
     this.getRole()
   },
   activated() {
+    this.getModList()
     this.getRole()
   },
   methods: {
