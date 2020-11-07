@@ -24,6 +24,14 @@
             </template>
           </el-table-column>
           <el-table-column
+            prop="project"
+            label="所属项目"
+          >
+            <template slot-scope="{row}">
+              <span>{{ row.project.name }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
             prop="remark"
             label="备注"
           />

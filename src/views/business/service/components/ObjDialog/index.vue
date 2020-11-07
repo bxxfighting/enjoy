@@ -7,6 +7,9 @@
       <el-form-item label="唯一标识" prop="sign">
         <el-input v-model="form.sign" />
       </el-form-item>
+      <el-form-item label="所属项目" prop="project_id">
+        <ProjectField :obj-id.sync="form.project_id" />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="opObj">确定</el-button>
         <el-button @click="cancelDialog">取消</el-button>
@@ -16,6 +19,7 @@
 </template>
 
 <script>
+import ProjectField from '@/components/Field/ProjectField'
 import {
   createServiceApi as createObjApi,
   updateServiceApi as updateObjApi,
@@ -23,6 +27,7 @@ import {
 } from '@/api/business/service'
 export default {
   name: 'FormDialog',
+  components: { ProjectField },
   props: {
     objId: {
       type: String,
@@ -46,10 +51,12 @@ export default {
         update: '编辑'
       },
       form: {
+        project_id: null,
         name: '',
         sign: ''
       },
       rules: {
+        project_id: [{ required: true, message: '请输入项目', trigger: 'change' }],
         name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
         sign: [{ required: true, message: '请输入标识', trigger: 'blur' }]
       }
@@ -83,6 +90,7 @@ export default {
       })
     },
     resetForm() {
+      this.form.project_id = null
       this.form.name = ''
       this.form.sign = ''
     },
