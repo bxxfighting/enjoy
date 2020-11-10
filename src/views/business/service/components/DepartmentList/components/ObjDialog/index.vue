@@ -1,8 +1,8 @@
 <template>
   <el-dialog :title="titleMap[status]" :visible.sync="visible" :close-on-click-modal="false" @open="open" @close="$emit('update:show', false)">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-      <el-form-item label="名称" prop="name">
-        <el-input v-model="form.name" />
+      <el-form-item label="部门" prop="department_id">
+        <DepartmentField :obj-id.sync="form.department_id" obj-name="" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="opObj">确定</el-button>
@@ -14,12 +14,12 @@
 
 <script>
 import {
-  createProjectApi as createObjApi,
-  updateProjectApi as updateObjApi,
-  getProjectApi as getObjApi
-} from '@/api/business/project'
+  createServiceDepartmentApi as createObjApi
+} from '@/api/business/service'
+import DepartmentField from '@/components/Field/DepartmentField'
 export default {
   name: 'FormDialog',
+  components: { DepartmentField },
   props: {
     objId: {
       type: String,
@@ -43,12 +43,11 @@ export default {
         update: '编辑'
       },
       form: {
-        name: '',
-        sign: ''
+        obj_id: parseInt(this.objId),
+        department_id: null
       },
       rules: {
-        name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
-        sign: [{ required: true, message: '请输入标识', trigger: 'blur' }]
+        department_id: [{ required: true, message: '请选择部门', trigger: 'blur' }]
       }
     }
   },
@@ -63,25 +62,10 @@ export default {
         this.$refs['form'].clearValidate()
       })
       this.resetForm()
-      if (this.status === 'update') {
-        this.getObj()
-      }
-    },
-    getObj() {
-      this.loading = true
-      const data = {
-        obj_id: parseInt(this.objId)
-      }
-      getObjApi(data).then(resp => {
-        if (resp.code === 0) {
-          this.form = resp.data
-        }
-        this.loading = false
-      })
     },
     resetForm() {
-      this.form.name = ''
-      this.form.sign = ''
+      this.form.obj_id = parseInt(this.objId)
+      this.form.department_id = null
     },
     cancelDialog() {
       this.$emit('update:show', false)
@@ -89,8 +73,6 @@ export default {
     opObj() {
       if (this.status === 'create') {
         this.createObj()
-      } else if (this.status === 'update') {
-        this.updateObj()
       }
     },
     createObj() {
@@ -99,27 +81,6 @@ export default {
           this.loading = true
           const data = this.form
           createObjApi(data).then(resp => {
-            if (resp.code === 0) {
-              this.$emit('update:show', false)
-              this.$notify({
-                message: '操作成功',
-                type: 'success',
-                duration: 2000
-              })
-              this.$emit('success')
-            }
-            this.loading = false
-          })
-        }
-      })
-    },
-    updateObj() {
-      this.$refs['form'].validate((valid) => {
-        if (valid) {
-          this.loading = true
-          const data = this.form
-          data['obj_id'] = parseInt(this.objId)
-          updateObjApi(data).then(resp => {
             if (resp.code === 0) {
               this.$emit('update:show', false)
               this.$notify({

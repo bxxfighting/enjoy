@@ -7,15 +7,19 @@
     <div v-if="tab.active === 'user'">
       <UserList :obj-id="String($route.params.id)" />
     </div>
+    <div v-else-if="tab.active === 'service'">
+      <ServiceList :obj-id="String($route.params.id)" />
+    </div>
   </div>
 </template>
 
 <script>
 import BaseInfo from './components/BaseInfo'
 import UserList from './components/UserList'
+import ServiceList from './components/ServiceList'
 export default {
-  name: 'UserDetail',
-  components: { BaseInfo, UserList },
+  name: 'DepartmentDetail',
+  components: { BaseInfo, UserList, ServiceList },
   data() {
     return {
       obj: {
@@ -24,7 +28,8 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'user', label: '用户列表' }
+          { name: 'user', label: '用户列表' },
+          { name: 'service', label: '服务列表' }
         ],
         active: 'user'
       }

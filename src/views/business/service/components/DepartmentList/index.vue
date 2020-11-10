@@ -2,34 +2,32 @@
   <div>
     <el-card>
       <div slot="header">
-        <span> 用户列表({{ obj.total }}) </span>
+        <span> 部门列表({{ obj.total }}) </span>
         <el-button
-          v-permission="[url.createServiceUserUrl]"
+          v-permission="[url.createServiceDepartmentUrl]"
           icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="user.name" label="名称" />
-          <el-table-column prop="user.username" label="用户名">
+          <el-table-column prop="department.name" label="名称" />
+          <el-table-column prop="department.sign" label="唯一标识">
             <template slot-scope="{row}">
-              <CopyField :value="row.user.username" />
+              <CopyField :value="row.department.sign" />
             </template>
           </el-table-column>
           <el-table-column prop="typ_desc" label="类型" />
-          <el-table-column prop="user.email" label="邮箱" />
-          <el-table-column prop="user.phone" label="手机号" />
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <router-link
-                :to="{name: 'UserDetail', params:{ id: row.user.id }}"
+                :to="{name: 'DepartmentDetail', params:{ id: row.department.id }}"
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
-              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.user.id)">
+              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.department.id)">
                 <el-button
-                  v-permission="[url.deleteServiceUserUrl]"
+                  v-permission="[url.deleteServiceDepartmentUrl]"
                   slot="reference" size="mini" type="text">
                   删除
                 </el-button>
@@ -37,7 +35,6 @@
             </template>
           </el-table-column>
         </el-table>
-        <pagination v-show="obj.total>0" :total="obj.total" :page.sync="obj.filter.page_num" :limit.sync="obj.filter.page_size" @pagination="getObjList" />
       </div>
     </el-card>
     <ObjDialog
@@ -51,18 +48,19 @@
 
 <script>
 import permission from '@/directive/permission/index.js'
-import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
 import ObjDialog from './components/ObjDialog'
 import url from '@/api/business/service/url'
 import {
-  getServiceUserListApi as getObjListApi,
-  deleteServiceUserApi as deleteObjApi
+  getServiceDepartmentListApi as getObjListApi
+} from '@/api/business/service'
+import {
+  deleteServiceDepartmentApi as deleteObjApi
 } from '@/api/business/service'
 export default {
-  name: 'UserList',
+  name: 'DepartmentList',
   directives: { permission },
-  components: { Pagination, CopyField, ObjDialog },
+  components: { CopyField, ObjDialog },
   props: {
     objId: {
       required: true,
@@ -77,8 +75,6 @@ export default {
         total: 0,
         dataList: [],
         filter: {
-          page_num: 1,
-          page_size: 20
         },
         form: {
           obj_id: this.objId,
@@ -115,7 +111,7 @@ export default {
       this.loading = true
       const data = {
         obj_id: parseInt(this.objId),
-        user_id: obj_id
+        department_id: obj_id
       }
       deleteObjApi(data).then(resp => {
         if (resp.code === 0) {

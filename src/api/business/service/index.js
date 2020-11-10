@@ -41,6 +41,30 @@ export function getServiceApi(data) {
   })
 }
 
+export function createServiceDepartmentApi(data) {
+  return request({
+    url: url.createServiceDepartmentUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceDepartmentApi(data) {
+  return request({
+    url: url.deleteServiceDepartmentUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceDepartmentListApi(data) {
+  return request({
+    url: url.getServiceDepartmentListUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function createServiceUserApi(data) {
   return request({
     url: url.createServiceUserUrl,

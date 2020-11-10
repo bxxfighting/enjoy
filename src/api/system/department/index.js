@@ -64,3 +64,11 @@ export function getDepartmentUserListApi(data) {
     data
   })
 }
+
+export function getDepartmentServiceListApi(data) {
+  return request({
+    url: url.getDepartmentServiceListUrl,
+    method: 'post',
+    data
+  })
+}

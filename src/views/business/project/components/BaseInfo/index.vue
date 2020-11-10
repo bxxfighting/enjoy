@@ -50,7 +50,7 @@ export default {
         },
         name: '',
         fields: [
-          { name: '标识', sign: 'sign', value: '' }
+          { name: '备注', sign: 'remark', value: '' }
         ]
       }
     }

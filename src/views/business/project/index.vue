@@ -16,14 +16,6 @@
             label="名称"
           />
           <el-table-column
-            prop="sign"
-            label="唯一标识"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.sign" />
-            </template>
-          </el-table-column>
-          <el-table-column
             prop="remark"
             label="备注"
           />
