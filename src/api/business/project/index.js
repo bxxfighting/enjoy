@@ -72,3 +72,11 @@ export function getProjectUserListApi(data) {
     data
   })
 }
+
+export function getProjectServiceListApi(data) {
+  return request({
+    url: url.getProjectServiceListUrl,
+    method: 'post',
+    data
+  })
+}

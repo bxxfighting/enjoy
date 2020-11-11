@@ -4,6 +4,16 @@
       <el-form-item label="名称" prop="name">
         <el-input v-model="form.name" />
       </el-form-item>
+      <el-form-item
+        label="备注"
+        prop="remark"
+      >
+        <el-input
+          v-model="form.remark"
+          type="textarea"
+          :rows="4"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="opObj">确定</el-button>
         <el-button @click="cancelDialog">取消</el-button>
@@ -44,7 +54,8 @@ export default {
       },
       form: {
         name: '',
-        sign: ''
+        sign: '',
+        remark: ''
       },
       rules: {
         name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
@@ -82,6 +93,7 @@ export default {
     resetForm() {
       this.form.name = ''
       this.form.sign = ''
+      this.form.remark = ''
     },
     cancelDialog() {
       this.$emit('update:show', false)

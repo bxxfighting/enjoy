@@ -10,6 +10,16 @@
       <el-form-item label="所属项目" prop="project_id">
         <ProjectField :obj-id.sync="form.project_id" />
       </el-form-item>
+      <el-form-item
+        label="备注"
+        prop="remark"
+      >
+        <el-input
+          v-model="form.remark"
+          type="textarea"
+          :rows="4"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="opObj">确定</el-button>
         <el-button @click="cancelDialog">取消</el-button>
@@ -53,7 +63,8 @@ export default {
       form: {
         project_id: null,
         name: '',
-        sign: ''
+        sign: '',
+        remark: ''
       },
       rules: {
         project_id: [{ required: true, message: '请输入项目', trigger: 'change' }],
@@ -93,6 +104,7 @@ export default {
       this.form.project_id = null
       this.form.name = ''
       this.form.sign = ''
+      this.form.remark = ''
     },
     cancelDialog() {
       this.$emit('update:show', false)

@@ -4,18 +4,18 @@
     <el-tabs v-model="tab.active" @tab-click="changeTab">
       <el-tab-pane v-for="item in tab.tab_list" :key="item.name" :label="item.label" :name="item.name" />
     </el-tabs>
-    <div v-if="tab.active === 'user'">
-      <UserList :obj-id="String($route.params.id)" />
+    <div v-if="tab.active === 'service'">
+      <ServiceList :obj-id="String($route.params.id)" />
     </div>
   </div>
 </template>
 
 <script>
 import BaseInfo from './components/BaseInfo'
-import UserList from './components/UserList'
+import ServiceList from './components/ServiceList'
 export default {
   name: 'ProjectDetail',
-  components: { BaseInfo, UserList },
+  components: { BaseInfo, ServiceList },
   data() {
     return {
       obj: {
@@ -24,9 +24,9 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'user', label: '用户列表' },
+          { name: 'service', label: '服务列表' },
         ],
-        active: 'user'
+        active: 'service'
       }
     }
   },

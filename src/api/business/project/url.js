@@ -7,7 +7,8 @@ const url = {
   createProjectUserUrl: '/api/v1/business/project/user/create/',
   updateProjectUserUrl: '/api/v1/business/project/user/update/',
   deleteProjectUserUrl: '/api/v1/business/project/user/delete/',
-  getProjectUserListUrl: '/api/v1/business/project/user/list/'
+  getProjectUserListUrl: '/api/v1/business/project/user/list/',
+  getProjectServiceListUrl: '/api/v1/business/project/service/list/'
 }
 
 export default url

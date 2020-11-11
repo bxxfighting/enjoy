@@ -50,7 +50,9 @@ export default {
         },
         name: '',
         fields: [
-          { name: '标识', sign: 'sign', value: '' }
+          { name: '标识', sign: 'sign', value: '' },
+          { name: '录入时间', sign: 'dt_create', value: '' },
+          { name: '备注', sign: 'remark', value: '' }
         ]
       }
     }
@@ -71,7 +73,9 @@ export default {
         if (resp.code === 0) {
           this.obj.name = resp.data.name
           this.obj.fields = this.obj.fields.map(function(item) {
-            item.value = resp.data[item.sign].toString()
+            if (resp.data[item.sign] !== null) {
+              item.value = resp.data[item.sign].toString()
+            }
             return item
           })
         }
