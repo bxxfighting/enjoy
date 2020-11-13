@@ -7,14 +7,14 @@ const router = {
   name: 'Business',
   meta: {
     title: '业务管理',
-    icon: 'el-icon-setting'
+    icon: 'el-icon-s-management'
   },
   children: [
     {
       path: 'project',
       component: () => import('@/views/business/project'),
       name: 'Project',
-      meta: { title: '项目管理', noCache: false, icon: 'el-icon-user', sign: 'project' }
+      meta: { title: '项目管理', noCache: false, icon: 'el-icon-s-platform', sign: 'project' }
     },
     {
       path: 'project/:id(\\d+)',
@@ -27,7 +27,7 @@ const router = {
       path: 'service',
       component: () => import('@/views/business/service'),
       name: 'Service',
-      meta: { title: '服务管理', noCache: false, icon: 'el-icon-user', sign: 'service' }
+      meta: { title: '服务管理', noCache: false, icon: 'el-icon-orange', sign: 'service' }
     },
     {
       path: 'service/:id(\\d+)',
