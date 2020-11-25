@@ -146,6 +146,8 @@ export default {
             duration: 2000
           })
           this.getObjList()
+        } else {
+          this.loading = false
         }
       })
     },
