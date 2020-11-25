@@ -20,7 +20,7 @@ const systemRouter = {
       path: 'asset',
       component: () => import('@/views/asset/asset'),
       name: 'Asset',
-      meta: { title: '资产模块管理', noCache: false, icon: 'el-icon-key', sign: 'asset' }
+      meta: { title: '资产模块管理', noCache: false, icon: 'el-icon-s-cooperation', sign: 'asset' }
     },
     {
       path: 'user',
