@@ -11,6 +11,12 @@ const systemRouter = {
   },
   children: [
     {
+      path: 'aliyun_key',
+      component: () => import('@/views/asset/aliyun_key'),
+      name: 'AliyunKey',
+      meta: { title: '阿里云Key', noCache: false, icon: 'el-icon-key', sign: 'aliyun_key' }
+    },
+    {
       path: 'user',
       component: () => import('@/views/system/user'),
       name: 'User',
