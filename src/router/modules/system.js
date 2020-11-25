@@ -17,6 +17,12 @@ const systemRouter = {
       meta: { title: '阿里云Key', noCache: false, icon: 'el-icon-key', sign: 'aliyun_key' }
     },
     {
+      path: 'asset',
+      component: () => import('@/views/asset/asset'),
+      name: 'Asset',
+      meta: { title: '资产模块管理', noCache: false, icon: 'el-icon-key', sign: 'asset' }
+    },
+    {
       path: 'user',
       component: () => import('@/views/system/user'),
       name: 'User',
