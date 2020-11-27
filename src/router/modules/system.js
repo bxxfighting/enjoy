@@ -23,6 +23,12 @@ const systemRouter = {
       meta: { title: '资产模块管理', noCache: false, icon: 'el-icon-s-cooperation', sign: 'asset' }
     },
     {
+      path: 'region',
+      component: () => import('@/views/asset/region'),
+      name: 'Asset',
+      meta: { title: '地域管理', noCache: false, icon: 'el-icon-map-location', sign: 'region' }
+    },
+    {
       path: 'user',
       component: () => import('@/views/system/user'),
       name: 'User',
