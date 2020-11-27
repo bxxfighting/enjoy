@@ -29,6 +29,12 @@ const systemRouter = {
       meta: { title: '地域管理', noCache: false, icon: 'el-icon-map-location', sign: 'region' }
     },
     {
+      path: 'environment',
+      component: () => import('@/views/business/environment'),
+      name: 'Environment',
+      meta: { title: '环境管理', noCache: false, icon: 'el-icon-paperclip', sign: 'environment' }
+    },
+    {
       path: 'user',
       component: () => import('@/views/system/user'),
       name: 'User',

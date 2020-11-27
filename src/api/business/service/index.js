@@ -96,3 +96,27 @@ export function getServiceUserListApi(data) {
     data
   })
 }
+
+export function createServiceEnvironmentApi(data) {
+  return request({
+    url: url.createServiceEnvironmentUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceEnvironmentApi(data) {
+  return request({
+    url: url.deleteServiceEnvironmentUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceEnvironmentListApi(data) {
+  return request({
+    url: url.getServiceEnvironmentListUrl,
+    method: 'post',
+    data
+  })
+}

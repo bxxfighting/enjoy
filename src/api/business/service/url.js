@@ -10,7 +10,10 @@ const url = {
   createServiceUserUrl: '/api/v1/business/service/user/create/',
   updateServiceUserUrl: '/api/v1/business/service/user/update/',
   deleteServiceUserUrl: '/api/v1/business/service/user/delete/',
-  getServiceUserListUrl: '/api/v1/business/service/user/list/'
+  getServiceUserListUrl: '/api/v1/business/service/user/list/',
+  createServiceEnvironmentUrl: '/api/v1/business/service/environment/create/',
+  deleteServiceEnvironmentUrl: '/api/v1/business/service/environment/delete/',
+  getServiceEnvironmentListUrl: '/api/v1/business/service/environment/list/'
 }
 
 export default url
