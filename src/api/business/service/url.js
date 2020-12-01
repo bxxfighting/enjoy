@@ -13,7 +13,10 @@ const url = {
   getServiceUserListUrl: '/api/v1/business/service/user/list/',
   createServiceEnvironmentUrl: '/api/v1/business/service/environment/create/',
   deleteServiceEnvironmentUrl: '/api/v1/business/service/environment/delete/',
-  getServiceEnvironmentListUrl: '/api/v1/business/service/environment/list/'
+  getServiceEnvironmentListUrl: '/api/v1/business/service/environment/list/',
+  createServiceAssetUrl: '/api/v1/business/service/asset/create/',
+  deleteServiceAssetUrl: '/api/v1/business/service/asset/delete/',
+  getServiceAssetListUrl: '/api/v1/business/service/asset/list/'
 }
 
 export default url

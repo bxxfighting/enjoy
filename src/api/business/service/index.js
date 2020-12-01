@@ -120,3 +120,27 @@ export function getServiceEnvironmentListApi(data) {
     data
   })
 }
+
+export function createServiceAssetApi(data) {
+  return request({
+    url: url.createServiceAssetUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceAssetApi(data) {
+  return request({
+    url: url.deleteServiceAssetUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceAssetListApi(data) {
+  return request({
+    url: url.getServiceAssetListUrl,
+    method: 'post',
+    data
+  })
+}
