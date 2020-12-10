@@ -2,7 +2,7 @@
   <el-dialog :title="titleMap[status]" :visible.sync="visible" :close-on-click-modal="false" @open="open" @close="$emit('update:show', false)">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       <el-form-item label="部门" prop="department_id">
-        <DepartmentField :obj-id.sync="form.department_id" obj-name="" />
+        <DepartmentField :obj-id.sync="form.department_id" obj-name="" :regain.sync="regain" />
       </el-form-item>
       <el-form-item label="类型" prop="typ">
         <el-select v-model="form.typ">
@@ -48,6 +48,7 @@ export default {
     return {
       loading: false,
       visible: this.show,
+      regain: false,
       titleMap: {
         create: '创建',
         update: '编辑'
@@ -76,6 +77,7 @@ export default {
   },
   methods: {
     open() {
+      this.regain = true
       this.$nextTick(() => {
         this.$refs['form'].clearValidate()
       })

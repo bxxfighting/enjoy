@@ -20,6 +20,10 @@ export default {
     objId: {
       type: Number,
       default: null
+    },
+    regain: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -35,6 +39,11 @@ export default {
   watch: {
     objId: function() {
       this.obj_id = parseInt(this.objId)
+    },
+    regain: function() {
+      if (this.regain === true) {
+        this.getObjList()
+      }
     }
   },
   created() {
@@ -52,6 +61,7 @@ export default {
           if (this.obj.dataList.length > 0) {
             this.obj_id = this.obj.dataList[0].id
             this.$emit('update:objId', this.obj_id)
+            this.$emit('update:regain', false)
           }
         }
       })

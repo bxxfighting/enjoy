@@ -8,7 +8,7 @@
         <el-input v-model="form.sign" />
       </el-form-item>
       <el-form-item label="所属项目" prop="project_id">
-        <ProjectField :obj-id.sync="form.project_id" />
+        <ProjectField :obj-id.sync="form.project_id" :regain.sync="regain" />
       </el-form-item>
       <el-form-item
         label="备注"
@@ -56,6 +56,7 @@ export default {
     return {
       loading: false,
       visible: this.show,
+      regain: false,
       titleMap: {
         create: '创建',
         update: '编辑'
@@ -80,6 +81,7 @@ export default {
   },
   methods: {
     open() {
+      this.regain = true
       this.$nextTick(() => {
         this.$refs['form'].clearValidate()
       })

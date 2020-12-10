@@ -2,7 +2,7 @@
   <el-dialog :title="titleMap[status]" :visible.sync="visible" :close-on-click-modal="false" @open="open" @close="$emit('update:show', false)">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       <el-form-item label="部门" prop="environment_id">
-        <EnvironmentField :obj-id.sync="form.environment_id" obj-name="" />
+        <EnvironmentField :obj-id.sync="form.environment_id" obj-name="" :regain.sync="regain" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="opObj">确定</el-button>
@@ -38,6 +38,7 @@ export default {
     return {
       loading: false,
       visible: this.show,
+      regain: false,
       titleMap: {
         create: '创建',
         update: '编辑'
@@ -58,6 +59,7 @@ export default {
   },
   methods: {
     open() {
+      this.regain = true
       this.$nextTick(() => {
         this.$refs['form'].clearValidate()
       })
