@@ -16,3 +16,11 @@ export function getEcsApi(data) {
     data
   })
 }
+
+export function getEcsServiceListApi(data) {
+  return request({
+    url: url.getEcsServiceListUrl,
+    method: 'post',
+    data
+  })
+}

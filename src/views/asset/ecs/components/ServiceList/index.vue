@@ -1,63 +1,59 @@
 <template>
-  <div v-loading="loading" class="app-container">
+  <div>
     <el-card>
       <div slot="header">
-        <span> ECS列表({{ obj.total }}) </span>
+        <span> 服务列表({{ obj.total }}) </span>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="name" label="名称" />
-          <el-table-column prop="instance_id" label="实例ID">
+          <el-table-column prop="service.name" label="服务名称" />
+          <el-table-column prop="service.sign" label="服务标识">
             <template slot-scope="{row}">
-              <CopyField :value="row.instance_id" />
+              <CopyField :value="row.service.sign" />
             </template>
           </el-table-column>
-          <el-table-column prop="inner_ip" label="内网IP">
+          <el-table-column prop="environment.name" label="环境名称" />
+          <el-table-column prop="environment.sign" label="环境标识">
             <template slot-scope="{row}">
-              <CopyField :value="row.inner_ip" />
+              <CopyField :value="row.environment.sign" />
             </template>
           </el-table-column>
-          <el-table-column prop="cpu" label="CPU" />
-          <el-table-column prop="memory" label="内存(M)" />
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <router-link
-                :to="{name: 'EcsDetail', params:{ id: row.id }}"
+                :to="{name: 'ServiceDetail', params:{ id: row.service.id }}"
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
             </template>
           </el-table-column>
         </el-table>
-        <pagination v-show="obj.total>0" :total="obj.total" :page.sync="obj.filter.page_num" :limit.sync="obj.filter.page_size" @pagination="getObjList" />
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
-import permission from '@/directive/permission/index.js'
-import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
-import url from '@/api/asset/ecs/url'
 import {
-  getEcsListApi as getObjListApi
+  getEcsServiceListApi as getObjListApi
 } from '@/api/asset/ecs'
 export default {
-  name: 'Ecs',
-  components: { Pagination, CopyField },
-  directives: { permission },
+  name: 'ServiceList',
+  components: { CopyField },
+  props: {
+    objId: {
+      required: true,
+      type: Number
+    }
+  },
   data() {
     return {
-      url,
-      loading: false,
       obj: {
+        loading: false,
         total: 0,
         dataList: [],
-        obj_id: null,
         filter: {
-          page_num: 1,
-          page_size: 10
         }
       }
     }
@@ -70,14 +66,15 @@ export default {
   },
   methods: {
     getObjList() {
-      this.loading = true
+      this.obj.loading = true
       const data = this.obj.filter
+      data['obj_id'] = this.objId
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
           this.obj.total = resp.data.total
         }
-        this.loading = false
+        this.obj.loading = false
       })
     }
   }

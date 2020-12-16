@@ -144,3 +144,27 @@ export function getServiceAssetListApi(data) {
     data
   })
 }
+
+export function createServiceEcsApi(data) {
+  return request({
+    url: url.createServiceEcsUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceEcsApi(data) {
+  return request({
+    url: url.deleteServiceEcsUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceEcsListApi(data) {
+  return request({
+    url: url.getServiceEcsListUrl,
+    method: 'post',
+    data
+  })
+}
