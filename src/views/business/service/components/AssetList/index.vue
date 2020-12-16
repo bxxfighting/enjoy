@@ -3,9 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 资产模块列表({{ obj.total }}) </span>
-        <el-button
-          v-permission="[url.createServiceAssetUrl]"
-          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <el-button v-permission="[url.createServiceAssetUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
@@ -20,9 +18,7 @@
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button
-                  v-permission="[url.deleteServiceAssetUrl]"
-                  slot="reference" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deleteServiceAssetUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -32,10 +28,10 @@
       </div>
     </el-card>
     <ObjDialog
-      :obj-id="String(obj.form.obj_id)"
+      :obj-id="obj.form.obj_id"
       :status.sync="obj.form.status"
       :show.sync="obj.form.show"
-      @success="getObjList"
+      @success="onChange"
     />
   </div>
 </template>
@@ -58,7 +54,7 @@ export default {
   props: {
     objId: {
       required: true,
-      type: String
+      type: Number
     }
   },
   data() {
@@ -85,10 +81,14 @@ export default {
     this.getObjList()
   },
   methods: {
+    onChange() {
+      this.$emit('change')
+      this.getObjList()
+    },
     getObjList() {
       this.obj.loading = true
       const data = this.obj.filter
-      data['obj_id'] = parseInt(this.objId)
+      data['obj_id'] = this.objId
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
@@ -104,7 +104,7 @@ export default {
     deleteObj(obj_id) {
       this.loading = true
       const data = {
-        obj_id: parseInt(this.objId),
+        obj_id: this.objId,
         asset_id: obj_id
       }
       deleteObjApi(data).then(resp => {
@@ -114,7 +114,7 @@ export default {
             type: 'success',
             duration: 2000
           })
-          this.getObjList()
+          this.onChange()
         }
       })
     }

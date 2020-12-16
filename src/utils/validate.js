@@ -81,3 +81,10 @@ export function isArray(arg) {
   }
   return Array.isArray(arg)
 }
+
+export function isKong(arg) {
+  if (arg === undefined || arg === null) {
+    return true
+  }
+  return false
+}

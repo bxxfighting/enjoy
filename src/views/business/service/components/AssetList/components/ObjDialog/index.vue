@@ -22,7 +22,7 @@ export default {
   components: { AssetField },
   props: {
     objId: {
-      type: String,
+      type: Number,
       default: null
     },
     status: {
@@ -44,7 +44,7 @@ export default {
         update: '编辑'
       },
       form: {
-        obj_id: parseInt(this.objId),
+        obj_id: this.objId,
         asset_id: null
       },
       rules: {
@@ -66,7 +66,7 @@ export default {
       this.resetForm()
     },
     resetForm() {
-      this.form.obj_id = parseInt(this.objId)
+      this.form.obj_id = this.objId
       this.form.asset_id = null
     },
     cancelDialog() {

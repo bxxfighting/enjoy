@@ -22,7 +22,7 @@ export default {
   components: { EnvironmentField },
   props: {
     objId: {
-      type: String,
+      type: Number,
       default: null
     },
     status: {
@@ -44,7 +44,7 @@ export default {
         update: '编辑'
       },
       form: {
-        obj_id: parseInt(this.objId),
+        obj_id: this.objId,
         environment_id: null
       },
       rules: {
@@ -66,7 +66,7 @@ export default {
       this.resetForm()
     },
     resetForm() {
-      this.form.obj_id = parseInt(this.objId)
+      this.form.obj_id = this.objId
       this.form.environment_id = null
     },
     cancelDialog() {

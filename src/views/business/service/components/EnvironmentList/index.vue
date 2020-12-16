@@ -28,10 +28,10 @@
       </div>
     </el-card>
     <ObjDialog
-      :obj-id="String(obj.form.obj_id)"
+      :obj-id="obj.form.obj_id"
       :status.sync="obj.form.status"
       :show.sync="obj.form.show"
-      @success="getObjList"
+      @success="onChange"
     />
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
   props: {
     objId: {
       required: true,
-      type: String
+      type: Number
     }
   },
   data() {
@@ -79,10 +79,14 @@ export default {
     this.getObjList()
   },
   methods: {
+    onChange() {
+      this.$emit('change')
+      this.getObjList()
+    },
     getObjList() {
       this.obj.loading = true
       const data = this.obj.filter
-      data['obj_id'] = parseInt(this.objId)
+      data['obj_id'] = this.objId
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
@@ -98,7 +102,7 @@ export default {
     deleteObj(obj_id) {
       this.loading = true
       const data = {
-        obj_id: parseInt(this.objId),
+        obj_id: this.objId,
         environment_id: obj_id
       }
       deleteObjApi(data).then(resp => {
@@ -108,7 +112,7 @@ export default {
             type: 'success',
             duration: 2000
           })
-          this.getObjList()
+          this.onChange()
         }
       })
     }

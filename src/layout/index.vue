@@ -8,6 +8,7 @@
         <tags-view v-if="needTagsView" />
       </div>
       <app-main />
+      <Footer />
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>
@@ -17,7 +18,7 @@
 
 <script>
 import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+import { AppMain, Footer, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
@@ -25,6 +26,7 @@ export default {
   name: 'Layout',
   components: {
     AppMain,
+    Footer,
     Navbar,
     RightPanel,
     Settings,

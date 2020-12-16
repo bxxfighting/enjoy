@@ -32,7 +32,7 @@ export default {
   components: { UserField },
   props: {
     objId: {
-      type: String,
+      type: Number,
       default: null
     },
     status: {

@@ -3,9 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 用户列表({{ obj.total }}) </span>
-        <el-button
-          v-permission="[url.createServiceUserUrl]"
-          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <el-button v-permission="[url.createServiceUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
@@ -28,9 +26,7 @@
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.user.id)">
-                <el-button
-                  v-permission="[url.deleteServiceUserUrl]"
-                  slot="reference" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deleteServiceUserUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -41,7 +37,7 @@
       </div>
     </el-card>
     <ObjDialog
-      :obj-id="String(obj.form.obj_id)"
+      :obj-id="obj.form.obj_id"
       :status.sync="obj.form.status"
       :show.sync="obj.form.show"
       @success="getObjList"
@@ -66,7 +62,7 @@ export default {
   props: {
     objId: {
       required: true,
-      type: String
+      type: Number
     }
   },
   data() {
@@ -98,7 +94,7 @@ export default {
     getObjList() {
       this.obj.loading = true
       const data = this.obj.filter
-      data['obj_id'] = parseInt(this.objId)
+      data['obj_id'] = this.objId
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
@@ -114,7 +110,7 @@ export default {
     deleteObj(obj_id) {
       this.loading = true
       const data = {
-        obj_id: parseInt(this.objId),
+        obj_id: this.objId,
         user_id: obj_id
       }
       deleteObjApi(data).then(resp => {

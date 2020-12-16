@@ -4,17 +4,17 @@
       <slot v-if="index<fields.length&&index%3==0">
         <el-col :span="8">
           <el-form-item :label="item.name">
-            <CopyField :value="item.value" />
+            <CopyField :value="String(item.value)" />
           </el-form-item>
         </el-col>
         <el-col v-if="index<fields.length-1" :span="8">
           <el-form-item :label="fields[index+1].name">
-            <CopyField :value="fields[index+1].value" />
+            <CopyField :value="String(fields[index+1].value)" />
           </el-form-item>
         </el-col>
         <el-col v-if="index<fields.length-2" :span="8">
           <el-form-item :label="fields[index+2].name">
-            <CopyField :value="fields[index+2].value" />
+            <CopyField :value="String(fields[index+2].value)" />
           </el-form-item>
         </el-col>
       </slot>
