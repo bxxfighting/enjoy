@@ -3,9 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 权限列表({{ obj.total }}) </span>
-        <el-button
-          v-permission="[url.createPermissionUrl]"
-          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <el-button v-permission="[url.createPermissionUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
@@ -22,9 +20,7 @@
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button
-                  v-permission="[url.deletePermissionUrl]"
-                  slot="reference" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deletePermissionUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>

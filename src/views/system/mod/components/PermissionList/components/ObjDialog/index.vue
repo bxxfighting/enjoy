@@ -32,10 +32,8 @@
 import {
   createPermissionApi as createObjApi
 } from '@/api/system/permission'
-import RoleField from '@/components/Field/RoleField'
 export default {
   name: 'FormDialog',
-  components: { RoleField },
   props: {
     objId: {
       type: String,

@@ -27,7 +27,6 @@
 <script>
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
-import CopyField from '@/components/Field/CopyField'
 import url from '@/api/system/department/url'
 import {
   getDepartmentServiceListApi as getObjListApi
@@ -35,7 +34,7 @@ import {
 export default {
   name: 'ServiceList',
   directives: { permission },
-  components: { Pagination, CopyField },
+  components: { Pagination },
   props: {
     objId: {
       required: true,

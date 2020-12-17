@@ -24,7 +24,7 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'service', label: '服务列表' },
+          { name: 'service', label: '服务列表' }
         ],
         active: 'service'
       }

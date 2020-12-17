@@ -24,7 +24,7 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'permission', label: '权限列表' },
+          { name: 'permission', label: '权限列表' }
         ],
         active: 'permission'
       }

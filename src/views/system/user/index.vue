@@ -3,10 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 用户列表({{ obj.total }}) </span>
-        <el-button
-          v-permission="[url.createUserUrl]"
-          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
-        添加</el-button>
+        <el-button v-permission="[url.createUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">添加</el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -29,15 +26,9 @@
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
-              <el-button
-                v-permission="[url.updateUserUrl]"
-                size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
-              编辑</el-button>
+              <el-button v-permission="[url.updateUserUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">编辑</el-button>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button
-                  v-permission="[url.deleteUserUrl]"
-                  slot="reference" size="mini" type="text">
-                删除</el-button>
+                <el-button slot="reference" v-permission="[url.deleteUserUrl]" size="mini" type="text">删除</el-button>
               </el-popconfirm>
             </template>
           </el-table-column>

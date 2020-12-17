@@ -1,7 +1,7 @@
 <template>
   <span
-    v-html="formatValue(value)"
     style="white-space: pre"
+    v-html="formatValue(value)"
   />
 </template>
 

@@ -3,9 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 部门列表({{ obj.total }}) </span>
-        <el-button
-          v-permission="[url.createDepartmentUserUrl]"
-          icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <el-button v-permission="[url.createDepartmentUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
@@ -26,9 +24,7 @@
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.department.id)">
-                <el-button
-                  v-permission="[url.deleteDepartmentUserUrl]"
-                  slot="reference" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deleteDepartmentUserUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
