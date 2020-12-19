@@ -7,15 +7,19 @@
     <div v-if="tab.active === 'ecs'">
       <EcsList :obj-id="parseInt($route.params.id)" />
     </div>
+    <div v-else-if="tab.active === 'service'">
+      <ServiceList :obj-id="parseInt($route.params.id)" />
+    </div>
   </div>
 </template>
 
 <script>
 import BaseInfo from './components/BaseInfo'
 import EcsList from './components/EcsList'
+import ServiceList from './components/ServiceList'
 export default {
   name: 'ServerGroupDetail',
-  components: { BaseInfo, EcsList },
+  components: { BaseInfo, EcsList, ServiceList },
   data() {
     return {
       obj: {
@@ -24,7 +28,8 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'ecs', label: 'ECS列表' }
+          { name: 'ecs', label: 'ECS列表' },
+          { name: 'service', label: '服务列表' }
         ],
         active: 'ecs'
       }

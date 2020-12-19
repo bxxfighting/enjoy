@@ -40,3 +40,11 @@ export function getSlbServerGroupEcsListApi(data) {
     data
   })
 }
+
+export function getSlbServerGroupServiceListApi(data) {
+  return request({
+    url: url.getSlbServerGroupServiceListUrl,
+    method: 'post',
+    data
+  })
+}

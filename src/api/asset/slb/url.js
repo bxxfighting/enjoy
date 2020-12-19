@@ -3,7 +3,8 @@ const url = {
   getSlbUrl: '/api/v1/asset/slb/',
   getSlbServerGroupListUrl: '/api/v1/asset/slb/server/group/list/',
   getSlbServerGroupUrl: '/api/v1/asset/slb/server/group/',
-  getSlbServerGroupEcsListUrl: '/api/v1/asset/slb/server/group/ecs/list/'
+  getSlbServerGroupEcsListUrl: '/api/v1/asset/slb/server/group/ecs/list/',
+  getSlbServerGroupServiceListUrl: '/api/v1/asset/slb/server/group/service/list/'
 }
 
 export default url

@@ -168,3 +168,27 @@ export function getServiceEcsListApi(data) {
     data
   })
 }
+
+export function createServiceServerGroupApi(data) {
+  return request({
+    url: url.createServiceServerGroupUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceServerGroupApi(data) {
+  return request({
+    url: url.deleteServiceServerGroupUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceServerGroupListApi(data) {
+  return request({
+    url: url.getServiceServerGroupListUrl,
+    method: 'post',
+    data
+  })
+}
