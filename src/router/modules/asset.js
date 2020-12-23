@@ -69,6 +69,19 @@ const router = {
       name: 'RdsAccountDetail',
       hidden: true,
       meta: { title: '数据库账号详情', noCache: false, sign: 'rds', activeMenu: '/asset/rds' }
+    },
+    {
+      path: 'redis',
+      component: () => import('@/views/asset/redis'),
+      name: 'Redis',
+      meta: { title: 'Redis管理', noCache: false, icon: 'el-icon-truck', sign: 'redis' }
+    },
+    {
+      path: 'redis/:id(\\d+)',
+      component: () => import('@/views/asset/redis/detail'),
+      name: 'RedisDetail',
+      hidden: true,
+      meta: { title: 'Redis详情', noCache: false, sign: 'redis', activeMenu: '/asset/redis' }
     }
   ]
 }

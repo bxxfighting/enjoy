@@ -216,3 +216,27 @@ export function getServiceDatabaseListApi(data) {
     data
   })
 }
+
+export function createServiceRedisApi(data) {
+  return request({
+    url: url.createServiceRedisUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceRedisApi(data) {
+  return request({
+    url: url.deleteServiceRedisUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceRedisListApi(data) {
+  return request({
+    url: url.getServiceRedisListUrl,
+    method: 'post',
+    data
+  })
+}

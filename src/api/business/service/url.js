@@ -25,7 +25,10 @@ const url = {
   getServiceServerGroupListUrl: '/api/v1/business/service/server/group/list/',
   createServiceDatabaseUrl: '/api/v1/business/service/database/create/',
   deleteServiceDatabaseUrl: '/api/v1/business/service/database/delete/',
-  getServiceDatabaseListUrl: '/api/v1/business/service/database/list/'
+  getServiceDatabaseListUrl: '/api/v1/business/service/database/list/',
+  createServiceRedisUrl: '/api/v1/business/service/redis/create/',
+  deleteServiceRedisUrl: '/api/v1/business/service/redis/delete/',
+  getServiceRedisListUrl: '/api/v1/business/service/redis/list/'
 }
 
 export default url
