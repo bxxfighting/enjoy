@@ -42,6 +42,33 @@ const router = {
       name: 'ServerGroupDetail',
       hidden: true,
       meta: { title: '服务器组详情', noCache: false, sign: 'slb', activeMenu: '/asset/slb' }
+    },
+    {
+      path: 'rds',
+      component: () => import('@/views/asset/rds'),
+      name: 'Rds',
+      meta: { title: 'RDS管理', noCache: false, icon: 'el-icon-truck', sign: 'rds' }
+    },
+    {
+      path: 'rds/:id(\\d+)',
+      component: () => import('@/views/asset/rds/detail'),
+      name: 'RdsDetail',
+      hidden: true,
+      meta: { title: 'RDS详情', noCache: false, sign: 'rds', activeMenu: '/asset/rds' }
+    },
+    {
+      path: 'rds/database/:id(\\d+)',
+      component: () => import('@/views/asset/rds/components/Database/detail'),
+      name: 'RdsDatabaseDetail',
+      hidden: true,
+      meta: { title: 'Database详情', noCache: false, sign: 'rds', activeMenu: '/asset/rds' }
+    },
+    {
+      path: 'rds/account/:id(\\d+)',
+      component: () => import('@/views/asset/rds/components/Account/detail'),
+      name: 'RdsAccountDetail',
+      hidden: true,
+      meta: { title: '数据库账号详情', noCache: false, sign: 'rds', activeMenu: '/asset/rds' }
     }
   ]
 }
