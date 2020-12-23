@@ -192,3 +192,27 @@ export function getServiceServerGroupListApi(data) {
     data
   })
 }
+
+export function createServiceDatabaseApi(data) {
+  return request({
+    url: url.createServiceDatabaseUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceDatabaseApi(data) {
+  return request({
+    url: url.deleteServiceDatabaseUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceDatabaseListApi(data) {
+  return request({
+    url: url.getServiceDatabaseListUrl,
+    method: 'post',
+    data
+  })
+}

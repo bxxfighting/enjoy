@@ -9,6 +9,9 @@
     <div v-else-if="tab.active === 'slb_server_group'">
       <ServerGroupList :service-id="service_id" :environment-id="environment_id" />
     </div>
+    <div v-else-if="tab.active === 'database'">
+      <DatabaseList :service-id="service_id" :environment-id="environment_id" />
+    </div>
     <div v-else>
       敬请期待
     </div>
@@ -21,10 +24,11 @@ import {
 } from '@/api/business/service'
 import EcsList from './components/EcsList'
 import ServerGroupList from './components/ServerGroupList'
+import DatabaseList from './components/DatabaseList'
 
 export default {
   name: 'AssetCard',
-  components: { EcsList, ServerGroupList },
+  components: { EcsList, ServerGroupList, DatabaseList },
   props: {
     serviceId: {
       required: true,

@@ -7,7 +7,8 @@ const url = {
   getRdsAccountListUrl: '/api/v1/asset/rds/account/list/',
   getRdsAccountUrl: '/api/v1/asset/rds/account/',
   updateRdsAccountUrl: '/api/v1/asset/rds/account/update/',
-  getRdsAccountDatabaseListUrl: '/api/v1/asset/rds/account/database/list/'
+  getRdsAccountDatabaseListUrl: '/api/v1/asset/rds/account/database/list/',
+  getRdsDatabaseServiceListUrl: '/api/v1/asset/rds/database/service/list/'
 }
 
 export default url

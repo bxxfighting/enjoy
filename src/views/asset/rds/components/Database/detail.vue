@@ -7,15 +7,19 @@
     <div v-if="tab.active === 'account'">
       <AccountList :obj-id="parseInt($route.params.id)" />
     </div>
+    <div v-else-if="tab.active === 'service'">
+      <ServiceList :obj-id="parseInt($route.params.id)" />
+    </div>
   </div>
 </template>
 
 <script>
 import BaseInfo from './components/BaseInfo'
 import AccountList from './components/AccountList'
+import ServiceList from './components/ServiceList'
 export default {
   name: 'RdsDatabaseDetail',
-  components: { BaseInfo, AccountList },
+  components: { BaseInfo, AccountList, ServiceList },
   data() {
     return {
       obj: {
@@ -24,7 +28,8 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'account', label: '账号' }
+          { name: 'account', label: '账号' },
+          { name: 'service', label: '服务' }
         ],
         active: 'account'
       }

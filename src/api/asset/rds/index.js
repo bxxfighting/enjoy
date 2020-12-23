@@ -72,3 +72,11 @@ export function getRdsAccountDatabaseListApi(data) {
     data
   })
 }
+
+export function getRdsDatabaseServiceListApi(data) {
+  return request({
+    url: url.getRdsDatabaseServiceListUrl,
+    method: 'post',
+    data
+  })
+}
