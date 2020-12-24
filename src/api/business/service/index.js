@@ -240,3 +240,27 @@ export function getServiceRedisListApi(data) {
     data
   })
 }
+
+export function createServiceMongoApi(data) {
+  return request({
+    url: url.createServiceMongoUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceMongoApi(data) {
+  return request({
+    url: url.deleteServiceMongoUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceMongoListApi(data) {
+  return request({
+    url: url.getServiceMongoListUrl,
+    method: 'post',
+    data
+  })
+}

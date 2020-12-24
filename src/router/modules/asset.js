@@ -82,6 +82,19 @@ const router = {
       name: 'RedisDetail',
       hidden: true,
       meta: { title: 'Redis详情', noCache: false, sign: 'redis', activeMenu: '/asset/redis' }
+    },
+    {
+      path: 'mongo',
+      component: () => import('@/views/asset/mongo'),
+      name: 'Mongo',
+      meta: { title: 'Mongo管理', noCache: false, icon: 'el-icon-truck', sign: 'mongo' }
+    },
+    {
+      path: 'mongo/:id(\\d+)',
+      component: () => import('@/views/asset/mongo/detail'),
+      name: 'MongoDetail',
+      hidden: true,
+      meta: { title: 'Mongo详情', noCache: false, sign: 'mongo', activeMenu: '/asset/mongo' }
     }
   ]
 }
