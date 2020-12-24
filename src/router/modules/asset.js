@@ -74,7 +74,7 @@ const router = {
       path: 'redis',
       component: () => import('@/views/asset/redis'),
       name: 'Redis',
-      meta: { title: 'Redis管理', noCache: false, icon: 'el-icon-truck', sign: 'redis' }
+      meta: { title: 'Redis管理', noCache: false, icon: 'el-icon-cloudy', sign: 'redis' }
     },
     {
       path: 'redis/:id(\\d+)',
@@ -87,7 +87,7 @@ const router = {
       path: 'mongo',
       component: () => import('@/views/asset/mongo'),
       name: 'Mongo',
-      meta: { title: 'Mongo管理', noCache: false, icon: 'el-icon-truck', sign: 'mongo' }
+      meta: { title: 'Mongo管理', noCache: false, icon: 'el-icon-dessert', sign: 'mongo' }
     },
     {
       path: 'mongo/:id(\\d+)',
@@ -95,6 +95,19 @@ const router = {
       name: 'MongoDetail',
       hidden: true,
       meta: { title: 'Mongo详情', noCache: false, sign: 'mongo', activeMenu: '/asset/mongo' }
+    },
+    {
+      path: 'domain',
+      component: () => import('@/views/asset/domain'),
+      name: 'Domain',
+      meta: { title: '域名管理', noCache: false, icon: 'el-icon-bangzhu', sign: 'domain' }
+    },
+    {
+      path: 'domain/:id(\\d+)',
+      component: () => import('@/views/asset/domain/detail'),
+      name: 'DomainDetail',
+      hidden: true,
+      meta: { title: '域名详情', noCache: false, sign: 'domain', activeMenu: '/asset/domain' }
     }
   ]
 }

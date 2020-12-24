@@ -48,3 +48,11 @@ export function getSlbServerGroupServiceListApi(data) {
     data
   })
 }
+
+export function getSlbDomainListApi(data) {
+  return request({
+    url: url.getSlbDomainListUrl,
+    method: 'post',
+    data
+  })
+}

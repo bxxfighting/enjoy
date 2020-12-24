@@ -7,15 +7,19 @@
     <div v-if="tab.active === 'server_group'">
       <ServerGroupList :obj-id="parseInt($route.params.id)" />
     </div>
+    <div v-else-if="tab.active === 'domain'">
+      <DomainList :obj-id="parseInt($route.params.id)" />
+    </div>
   </div>
 </template>
 
 <script>
 import BaseInfo from './components/BaseInfo'
 import ServerGroupList from './components/ServerGroupList'
+import DomainList from './components/DomainList'
 export default {
   name: 'SlbDetail',
-  components: { BaseInfo, ServerGroupList },
+  components: { BaseInfo, ServerGroupList, DomainList },
   data() {
     return {
       obj: {
@@ -24,7 +28,8 @@ export default {
       },
       tab: {
         tab_list: [
-          { name: 'server_group', label: '服务器组' }
+          { name: 'server_group', label: '服务器组' },
+          { name: 'domain', label: '域名列表' }
         ],
         active: 'server_group'
       }

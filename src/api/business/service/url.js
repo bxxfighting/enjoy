@@ -31,7 +31,10 @@ const url = {
   getServiceRedisListUrl: '/api/v1/business/service/redis/list/',
   createServiceMongoUrl: '/api/v1/business/service/mongo/create/',
   deleteServiceMongoUrl: '/api/v1/business/service/mongo/delete/',
-  getServiceMongoListUrl: '/api/v1/business/service/mongo/list/'
+  getServiceMongoListUrl: '/api/v1/business/service/mongo/list/',
+  createServiceDomainUrl: '/api/v1/business/service/domain/create/',
+  deleteServiceDomainUrl: '/api/v1/business/service/domain/delete/',
+  getServiceDomainListUrl: '/api/v1/business/service/domain/list/'
 }
 
 export default url

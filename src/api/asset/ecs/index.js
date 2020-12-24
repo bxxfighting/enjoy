@@ -24,3 +24,11 @@ export function getEcsServiceListApi(data) {
     data
   })
 }
+
+export function getEcsDomainListApi(data) {
+  return request({
+    url: url.getEcsDomainListUrl,
+    method: 'post',
+    data
+  })
+}

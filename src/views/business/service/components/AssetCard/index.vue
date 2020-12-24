@@ -18,6 +18,9 @@
     <div v-else-if="tab.active === 'mongo'">
       <MongoList :service-id="service_id" :environment-id="environment_id" />
     </div>
+    <div v-else-if="tab.active === 'domain'">
+      <DomainList :service-id="service_id" :environment-id="environment_id" />
+    </div>
     <div v-else>
       敬请期待
     </div>
@@ -33,10 +36,11 @@ import ServerGroupList from './components/ServerGroupList'
 import DatabaseList from './components/DatabaseList'
 import RedisList from './components/RedisList'
 import MongoList from './components/MongoList'
+import DomainList from './components/DomainList'
 
 export default {
   name: 'AssetCard',
-  components: { EcsList, ServerGroupList, DatabaseList, RedisList, MongoList },
+  components: { EcsList, ServerGroupList, DatabaseList, RedisList, MongoList, DomainList },
   props: {
     serviceId: {
       required: true,

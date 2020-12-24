@@ -264,3 +264,27 @@ export function getServiceMongoListApi(data) {
     data
   })
 }
+
+export function createServiceDomainApi(data) {
+  return request({
+    url: url.createServiceDomainUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceDomainApi(data) {
+  return request({
+    url: url.deleteServiceDomainUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceDomainListApi(data) {
+  return request({
+    url: url.getServiceDomainListUrl,
+    method: 'post',
+    data
+  })
+}
