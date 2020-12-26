@@ -1,9 +1,10 @@
 <template>
   <el-autocomplete
-    v-model="obj.filter.rds_instance_id"
-    :value="obj.filter.rds_instance_id"
+    v-model="obj.filter.rocket_instance_id"
+    style="width: 100%"
+    :value="obj.filter.rocket_instance_id"
     :fetch-suggestions="searchObj"
-    placeholder="请输入RDS实例ID搜索"
+    placeholder="请输入Rocket实例ID搜索"
     clearable
     @select="selectObj"
   />
@@ -11,11 +12,11 @@
 
 <script>
 import {
-  getRdsDatabaseListApi as getObjListApi
-} from '@/api/asset/rds'
+  getRocketTopicListApi as getObjListApi
+} from '@/api/asset/rocket'
 
 export default {
-  name: 'RdsDatabaseField',
+  name: 'RocketTopicField',
   props: {
     objId: {
       type: Number,
@@ -33,7 +34,7 @@ export default {
         dataList: [],
         timeout: null,
         filter: {
-          rds_instance_id: '',
+          rocket_instance_id: '',
           page_num: 1,
           page_size: 20
         }
@@ -45,13 +46,13 @@ export default {
       this.obj_id = this.objId
     },
     regain: function() {
-      this.obj.filter.rds_instance_id = ''
+      this.obj.filter.rocket_instance_id = ''
       this.$emit('update:regain', false)
     }
   },
   methods: {
-    searchObj(rds_instance_id, cb) {
-      if (rds_instance_id === '') {
+    searchObj(rocket_instance_id, cb) {
+      if (rocket_instance_id === '') {
         return
       }
       clearTimeout(this.obj.timeout)

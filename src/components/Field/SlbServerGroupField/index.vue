@@ -1,6 +1,7 @@
 <template>
   <el-autocomplete
     v-model="obj.filter.slb_instance_id"
+    style="width: 100%"
     :value="obj.filter.slb_instance_id"
     :fetch-suggestions="searchObj"
     placeholder="请输入SLB实例ID搜索"
@@ -51,6 +52,9 @@ export default {
   },
   methods: {
     searchObj(slb_instance_id, cb) {
+      if (slb_instance_id === '') {
+        return
+      }
       clearTimeout(this.obj.timeout)
       this.obj.timeout = setTimeout(() => {
         const filter = this.obj.filter

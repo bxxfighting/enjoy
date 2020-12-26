@@ -288,3 +288,27 @@ export function getServiceDomainListApi(data) {
     data
   })
 }
+
+export function createServiceRocketTopicApi(data) {
+  return request({
+    url: url.createServiceRocketTopicUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteServiceRocketTopicApi(data) {
+  return request({
+    url: url.deleteServiceRocketTopicUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getServiceRocketTopicListApi(data) {
+  return request({
+    url: url.getServiceRocketTopicListUrl,
+    method: 'post',
+    data
+  })
+}

@@ -1,5 +1,5 @@
 <template>
-  <el-form :inline="true">
+  <el-form :inline="true" label-position="top" size="mini">
     <el-row v-for="(item,index) in fields" :key="item.name" class="tile">
       <slot v-if="index<fields.length&&index%3==0">
         <el-col :span="8">

@@ -21,6 +21,9 @@
     <div v-else-if="tab.active === 'domain'">
       <DomainList :service-id="service_id" :environment-id="environment_id" />
     </div>
+    <div v-else-if="tab.active === 'rocket_topic'">
+      <RocketTopicList :service-id="service_id" :environment-id="environment_id" />
+    </div>
     <div v-else>
       敬请期待
     </div>
@@ -37,10 +40,11 @@ import DatabaseList from './components/DatabaseList'
 import RedisList from './components/RedisList'
 import MongoList from './components/MongoList'
 import DomainList from './components/DomainList'
+import RocketTopicList from './components/RocketTopicList'
 
 export default {
   name: 'AssetCard',
-  components: { EcsList, ServerGroupList, DatabaseList, RedisList, MongoList, DomainList },
+  components: { EcsList, ServerGroupList, DatabaseList, RedisList, MongoList, DomainList, RocketTopicList },
   props: {
     serviceId: {
       required: true,
@@ -81,9 +85,6 @@ export default {
     }
   },
   created() {
-    this.getObjList()
-  },
-  activated() {
     this.getObjList()
   },
   methods: {

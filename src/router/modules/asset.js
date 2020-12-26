@@ -108,6 +108,19 @@ const router = {
       name: 'DomainDetail',
       hidden: true,
       meta: { title: '域名详情', noCache: false, sign: 'domain', activeMenu: '/asset/domain' }
+    },
+    {
+      path: 'rocket',
+      component: () => import('@/views/asset/rocket'),
+      name: 'Rocket',
+      meta: { title: 'Rocket管理', noCache: false, icon: 'el-icon-fork-spoon', sign: 'rocket' }
+    },
+    {
+      path: 'rocket/:id(\\d+)',
+      component: () => import('@/views/asset/rocket/detail'),
+      name: 'RocketDetail',
+      hidden: true,
+      meta: { title: 'Rocket详情', noCache: false, sign: 'rocket', activeMenu: '/asset/rocket' }
     }
   ]
 }

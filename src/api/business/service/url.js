@@ -34,7 +34,10 @@ const url = {
   getServiceMongoListUrl: '/api/v1/business/service/mongo/list/',
   createServiceDomainUrl: '/api/v1/business/service/domain/create/',
   deleteServiceDomainUrl: '/api/v1/business/service/domain/delete/',
-  getServiceDomainListUrl: '/api/v1/business/service/domain/list/'
+  getServiceDomainListUrl: '/api/v1/business/service/domain/list/',
+  createServiceRocketTopicUrl: '/api/v1/business/service/rocket/topic/create/',
+  deleteServiceRocketTopicUrl: '/api/v1/business/service/rocket/topic/delete/',
+  getServiceRocketTopicListUrl: '/api/v1/business/service/rocket/topic/list/'
 }
 
 export default url
