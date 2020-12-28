@@ -2,6 +2,7 @@
   <el-card v-loading="obj.loading" shadow="never">
     <div slot="header">
       <span>{{ obj.name }}</span>
+      <el-link class="el-icon-link" :href="obj.web_url" target="_blank" />
     </div>
     <Tile :fields="obj.fields" />
   </el-card>
@@ -35,6 +36,7 @@ export default {
           status: 'update'
         },
         name: '',
+        web_url: '',
         fields: [
           { name: '实例ID', sign: 'instance_id', value: '' },
           { name: 'IP', sign: 'ip', value: '' },
@@ -62,6 +64,7 @@ export default {
       getObjApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.name = resp.data.name
+          this.obj.web_url = resp.data.web_url
           this.obj.fields = this.obj.fields.map(function(item) {
             item.value = resp.data[item.sign]
             return item

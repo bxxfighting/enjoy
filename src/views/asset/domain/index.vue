@@ -9,6 +9,7 @@
           <el-table-column prop="fullname" label="名称">
             <template slot-scope="{row}">
               <CopyField :value="row.fullname" />
+              <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
             </template>
           </el-table-column>
           <el-table-column prop="instance_id" label="实例ID">
@@ -16,10 +17,10 @@
               <CopyField :value="row.instance_id" />
             </template>
           </el-table-column>
-          <el-table-column prop="typ" label="类型" />
-          <el-table-column prop="rr" label="RR" />
-          <el-table-column prop="value" label="Value" />
-          <el-table-column prop="enabled" label="是否启用">
+          <el-table-column width="80" prop="typ" label="类型" />
+          <el-table-column width="80" prop="rr" label="RR" />
+          <el-table-column width="120" prop="value" label="Value" />
+          <el-table-column width="80" prop="enabled" label="是否启用">
             <template slot-scope="{row}">
               <CopyField :value="String(row.enabled)" />
             </template>

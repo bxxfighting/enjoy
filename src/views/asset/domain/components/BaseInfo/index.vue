@@ -2,6 +2,7 @@
   <el-card v-loading="obj.loading" shadow="never">
     <div slot="header">
       <CopyField :value="obj.name" />
+      <el-link class="el-icon-link" :href="obj.web_url" target="_blank" />
       <span v-if="obj.asset!==null&&obj.asset.typ==='ecs'">
         [解析至{{ obj.asset.typ }}:
         <router-link
@@ -52,6 +53,7 @@ export default {
           status: 'update'
         },
         name: '',
+        web_url: '',
         asset: null,
         fields: [
           { name: '实例ID', sign: 'instance_id', value: '' },
@@ -78,6 +80,7 @@ export default {
       getObjApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.name = resp.data.fullname
+          this.obj.web_url = resp.data.web_url
           this.obj.asset = resp.data.asset
           this.obj.fields = this.obj.fields.map(function(item) {
             item.value = resp.data[item.sign]

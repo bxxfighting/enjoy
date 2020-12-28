@@ -6,7 +6,12 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="name" label="名称" />
+          <el-table-column prop="name" label="名称">
+            <template slot-scope="{row}">
+              <CopyField :value="row.name" />
+              <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
+            </template>
+          </el-table-column>
           <el-table-column prop="instance_id" label="实例ID">
             <template slot-scope="{row}">
               <CopyField :value="row.instance_id" />
@@ -19,7 +24,7 @@
           </el-table-column>
           <el-table-column prop="cpu" label="CPU" />
           <el-table-column prop="memory" label="内存(M)" />
-          <el-table-column fixed="right" label="操作" width="160">
+          <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="{row}">
               <router-link
                 :to="{name: 'EcsDetail', params:{ id: row.id }}"

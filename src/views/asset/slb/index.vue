@@ -6,7 +6,12 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="name" label="名称" />
+          <el-table-column prop="name" label="名称">
+            <template slot-scope="{row}">
+              <CopyField :value="row.name" />
+              <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
+            </template>
+          </el-table-column>
           <el-table-column prop="instance_id" label="实例ID">
             <template slot-scope="{row}">
               <CopyField :value="row.instance_id" />
@@ -17,10 +22,10 @@
               <CopyField :value="row.ip" />
             </template>
           </el-table-column>
-          <el-table-column prop="ip_typ_desc" label="类型" />
-          <el-table-column prop="region_id" label="地域" />
-          <el-table-column prop="zone_id" label="可用区" />
-          <el-table-column fixed="right" label="操作" width="160">
+          <el-table-column width="50" prop="ip_typ_desc" label="类型" />
+          <el-table-column width="120" prop="region_id" label="地域" />
+          <el-table-column width="130" prop="zone_id" label="可用区" />
+          <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="{row}">
               <router-link
                 :to="{name: 'SlbDetail', params:{ id: row.id }}"
