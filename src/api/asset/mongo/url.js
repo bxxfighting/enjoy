@@ -1,5 +1,6 @@
 const url = {
   getMongoListUrl: '/api/v1/asset/mongo/list/',
+  syncMongoUrl: '/api/v1/asset/mongo/sync/',
   getMongoUrl: '/api/v1/asset/mongo/',
   getMongoAccountListUrl: '/api/v1/asset/mongo/account/list/',
   getMongoAccountUrl: '/api/v1/asset/mongo/account/',

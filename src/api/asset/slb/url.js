@@ -1,5 +1,6 @@
 const url = {
   getSlbListUrl: '/api/v1/asset/slb/list/',
+  syncSlbUrl: '/api/v1/asset/slb/sync/',
   getSlbUrl: '/api/v1/asset/slb/',
   getSlbServerGroupListUrl: '/api/v1/asset/slb/server/group/list/',
   getSlbServerGroupUrl: '/api/v1/asset/slb/server/group/',

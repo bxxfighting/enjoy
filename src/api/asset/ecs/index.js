@@ -9,6 +9,14 @@ export function getEcsListApi(data) {
   })
 }
 
+export function syncEcsApi(data) {
+  return request({
+    url: url.syncEcsUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getEcsApi(data) {
   return request({
     url: url.getEcsUrl,

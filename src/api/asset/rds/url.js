@@ -1,5 +1,6 @@
 const url = {
   getRdsListUrl: '/api/v1/asset/rds/list/',
+  syncRdsUrl: '/api/v1/asset/rds/sync/',
   getRdsUrl: '/api/v1/asset/rds/',
   getRdsDatabaseListUrl: '/api/v1/asset/rds/database/list/',
   getRdsDatabaseUrl: '/api/v1/asset/rds/database/',

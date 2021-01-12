@@ -3,6 +3,9 @@
     <el-card>
       <div slot="header">
         <span> 域名列表({{ obj.total }}) </span>
+        <el-button v-permission="[url.syncDomainUrl]" icon="el-icon-refresh" type="text" size="small" style="float: right; padding: 3px 0;" @click="syncObj">
+          同步
+        </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -47,7 +50,8 @@ import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
 import url from '@/api/asset/domain/url'
 import {
-  getDomainRecordListApi as getObjListApi
+  getDomainRecordListApi as getObjListApi,
+  syncDomainApi as syncObjApi
 } from '@/api/asset/domain'
 export default {
   name: 'Domain',
@@ -82,6 +86,20 @@ export default {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
           this.obj.total = resp.data.total
+        }
+        this.loading = false
+      })
+    },
+    syncObj() {
+      this.loading = true
+      const data = this.obj.filter
+      syncObjApi(data).then(resp => {
+        if (resp.code === 0) {
+          this.$notify({
+            message: '操作成功',
+            type: 'success',
+            duration: 2000
+          })
         }
         this.loading = false
       })

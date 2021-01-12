@@ -9,6 +9,14 @@ export function getRedisListApi(data) {
   })
 }
 
+export function syncRedisApi(data) {
+  return request({
+    url: url.syncRedisUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getRedisApi(data) {
   return request({
     url: url.getRedisUrl,

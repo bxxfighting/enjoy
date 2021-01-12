@@ -9,6 +9,14 @@ export function getMongoListApi(data) {
   })
 }
 
+export function syncMongoApi(data) {
+  return request({
+    url: url.syncMongoUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getMongoApi(data) {
   return request({
     url: url.getMongoUrl,

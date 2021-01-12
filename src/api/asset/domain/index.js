@@ -9,6 +9,14 @@ export function getDomainListApi(data) {
   })
 }
 
+export function syncDomainApi(data) {
+  return request({
+    url: url.syncDomainUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getDomainApi(data) {
   return request({
     url: url.getDomainUrl,

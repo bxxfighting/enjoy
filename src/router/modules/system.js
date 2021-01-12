@@ -35,6 +35,19 @@ const systemRouter = {
       meta: { title: '环境管理', noCache: false, icon: 'el-icon-paperclip', sign: 'environment' }
     },
     {
+      path: 'berry_type',
+      component: () => import('@/views/system/berry_type'),
+      name: 'BerryType',
+      meta: { title: '任务类型管理', noCache: false, icon: 'el-icon-guide', sign: 'berry_type' }
+    },
+    {
+      path: 'berry_type/:id(\\d+)',
+      component: () => import('@/views/system/berry_type/detail'),
+      name: 'BerryTypeDetail',
+      hidden: true,
+      meta: { title: '任务类型详情', noCache: false, sign: 'berry_type', activeMenu: '/system/berry_type' }
+    },
+    {
       path: 'user',
       component: () => import('@/views/system/user'),
       name: 'User',

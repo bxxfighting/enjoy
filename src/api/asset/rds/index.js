@@ -9,6 +9,14 @@ export function getRdsListApi(data) {
   })
 }
 
+export function syncRdsApi(data) {
+  return request({
+    url: url.syncRdsUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getRdsApi(data) {
   return request({
     url: url.getRdsUrl,

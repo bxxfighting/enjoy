@@ -9,6 +9,14 @@ export function getSlbListApi(data) {
   })
 }
 
+export function syncSlbApi(data) {
+  return request({
+    url: url.syncSlbUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getSlbApi(data) {
   return request({
     url: url.getSlbUrl,

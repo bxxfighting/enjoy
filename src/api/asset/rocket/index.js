@@ -9,6 +9,14 @@ export function getRocketListApi(data) {
   })
 }
 
+export function syncRocketApi(data) {
+  return request({
+    url: url.syncRocketUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function getRocketApi(data) {
   return request({
     url: url.getRocketUrl,
