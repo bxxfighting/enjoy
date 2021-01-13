@@ -8,6 +8,7 @@ import Layout from '@/layout'
 
 import systemRouter from './modules/system'
 import assetRouter from './modules/asset'
+import componentRouter from './modules/component'
 import businessRouter from './modules/business'
 
 /**
@@ -42,6 +43,7 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   assetRouter,
+  componentRouter,
   businessRouter,
   systemRouter
 ]

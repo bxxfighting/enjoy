@@ -41,6 +41,12 @@ const systemRouter = {
       meta: { title: '任务类型管理', noCache: false, icon: 'el-icon-guide', sign: 'berry_type' }
     },
     {
+      path: 'gitlab_server',
+      component: () => import('@/views/system/gitlab_server'),
+      name: 'GitlabServer',
+      meta: { title: 'Gitlab服务', noCache: false, icon: 'el-icon-wallet', sign: 'gitlab_server' }
+    },
+    {
       path: 'berry_type/:id(\\d+)',
       component: () => import('@/views/system/berry_type/detail'),
       name: 'BerryTypeDetail',
