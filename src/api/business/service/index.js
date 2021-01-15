@@ -1,6 +1,86 @@
 import request from '@/utils/request'
 import url from './url'
 
+export function createFrameApi(data) {
+  return request({
+    url: url.createFrameUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function updateFrameApi(data) {
+  return request({
+    url: url.updateFrameUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteFrameApi(data) {
+  return request({
+    url: url.deleteFrameUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getFrameListApi(data) {
+  return request({
+    url: url.getFrameListUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getFrameApi(data) {
+  return request({
+    url: url.getFrameUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function createLanguageApi(data) {
+  return request({
+    url: url.createLanguageUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function updateLanguageApi(data) {
+  return request({
+    url: url.updateLanguageUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function deleteLanguageApi(data) {
+  return request({
+    url: url.deleteLanguageUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getLanguageListApi(data) {
+  return request({
+    url: url.getLanguageListUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function getLanguageApi(data) {
+  return request({
+    url: url.getLanguageUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function createServiceApi(data) {
   return request({
     url: url.createServiceUrl,

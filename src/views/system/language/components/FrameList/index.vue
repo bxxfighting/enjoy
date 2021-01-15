@@ -1,62 +1,23 @@
 <template>
-  <div v-loading="loading" class="app-container">
+  <div>
     <el-card>
       <div slot="header">
-        <span> 服务列表({{ obj.total }}) </span>
-        <el-button v-permission="[url.createServiceUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <span> 框架列表({{ obj.total }}) </span>
+        <el-button v-permission="[url.createFrameUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column
-            prop="name"
-            label="名称"
-          />
-          <el-table-column
-            prop="sign"
-            label="唯一标识"
-          >
+          <el-table-column prop="name" label="名称" />
+          <el-table-column prop="sign" label="标识" />
+          <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
-              <CopyField :value="row.sign" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="language.name"
-            label="编程语言"
-          />
-          <el-table-column
-            prop="frame.name"
-            label="框架"
-          />
-          <el-table-column
-            prop="project"
-            label="所属项目"
-          >
-            <template slot-scope="{row}">
-              <span>{{ row.project.name }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="remark"
-            label="备注"
-          />
-          <el-table-column
-            fixed="right"
-            label="操作"
-            width="160"
-          >
-            <template slot-scope="{row}">
-              <router-link
-                :to="{name: 'ServiceDetail', params:{ id: row.id }}"
-              >
-                <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
-              </router-link>
-              <el-button v-permission="[url.updateServiceUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
+              <el-button v-permission="[url.updateFrameUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
                 编辑
               </el-button>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button slot="reference" v-permission="[url.deleteServiceUrl]" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deleteFrameUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -67,7 +28,8 @@
       </div>
     </el-card>
     <ObjDialog
-      :obj-id="String(obj.form.obj_id)"
+      :obj-id="parseInt(obj.form.obj_id)"
+      :language-id="parseInt(objId)"
       :status.sync="obj.form.status"
       :show.sync="obj.form.show"
       @success="getObjList"
@@ -78,31 +40,35 @@
 <script>
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
-import CopyField from '@/components/Field/CopyField'
+import ObjDialog from './components/ObjDialog'
 import url from '@/api/business/service/url'
 import {
-  deleteServiceApi as deleteObjApi,
-  getServiceListApi as getObjListApi
+  getFrameListApi as getObjListApi,
+  deleteFrameApi as deleteObjApi
 } from '@/api/business/service'
-import ObjDialog from './components/ObjDialog'
 export default {
-  name: 'Service',
-  components: { Pagination, ObjDialog, CopyField },
+  name: 'FrameList',
   directives: { permission },
+  components: { Pagination, ObjDialog },
+  props: {
+    objId: {
+      required: true,
+      type: Number
+    }
+  },
   data() {
     return {
       url,
-      loading: false,
       obj: {
+        loading: false,
         total: 0,
         dataList: [],
-        obj_id: null,
         filter: {
           page_num: 1,
-          page_size: 10
+          page_size: 20
         },
         form: {
-          obj_id: null,
+          obj_id: this.objId,
           show: false,
           status: 'create'
         }
@@ -117,14 +83,15 @@ export default {
   },
   methods: {
     getObjList() {
-      this.loading = true
+      this.obj.loading = true
       const data = this.obj.filter
+      data['language_id'] = this.objId
       getObjListApi(data).then(resp => {
         if (resp.code === 0) {
           this.obj.dataList = resp.data.data_list
           this.obj.total = resp.data.total
         }
-        this.loading = false
+        this.obj.loading = false
       })
     },
     handleCreateObj() {
@@ -139,7 +106,7 @@ export default {
     deleteObj(obj_id) {
       this.loading = true
       const data = {
-        obj_id: parseInt(obj_id)
+        obj_id: obj_id
       }
       deleteObjApi(data).then(resp => {
         if (resp.code === 0) {

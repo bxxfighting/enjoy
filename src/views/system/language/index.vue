@@ -2,8 +2,8 @@
   <div v-loading="loading" class="app-container">
     <el-card>
       <div slot="header">
-        <span> 服务列表({{ obj.total }}) </span>
-        <el-button v-permission="[url.createServiceUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
+        <span> 编程语言列表({{ obj.total }}) </span>
+        <el-button v-permission="[url.createLanguageUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
           添加
         </el-button>
       </div>
@@ -22,41 +22,21 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop="language.name"
-            label="编程语言"
-          />
-          <el-table-column
-            prop="frame.name"
-            label="框架"
-          />
-          <el-table-column
-            prop="project"
-            label="所属项目"
-          >
-            <template slot-scope="{row}">
-              <span>{{ row.project.name }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="remark"
-            label="备注"
-          />
-          <el-table-column
             fixed="right"
             label="操作"
             width="160"
           >
             <template slot-scope="{row}">
               <router-link
-                :to="{name: 'ServiceDetail', params:{ id: row.id }}"
+                :to="{name: 'LanguageDetail', params:{ id: row.id }}"
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
-              <el-button v-permission="[url.updateServiceUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
+              <el-button v-permission="[url.updateLanguageUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
                 编辑
               </el-button>
               <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button slot="reference" v-permission="[url.deleteServiceUrl]" size="mini" type="text">
+                <el-button slot="reference" v-permission="[url.deleteLanguageUrl]" size="mini" type="text">
                   删除
                 </el-button>
               </el-popconfirm>
@@ -67,7 +47,7 @@
       </div>
     </el-card>
     <ObjDialog
-      :obj-id="String(obj.form.obj_id)"
+      :obj-id="parseInt(obj.form.obj_id)"
       :status.sync="obj.form.status"
       :show.sync="obj.form.show"
       @success="getObjList"
@@ -79,14 +59,14 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
-import url from '@/api/business/service/url'
+import url from '@/api/system/department/url'
 import {
-  deleteServiceApi as deleteObjApi,
-  getServiceListApi as getObjListApi
+  deleteLanguageApi as deleteObjApi,
+  getLanguageListApi as getObjListApi
 } from '@/api/business/service'
 import ObjDialog from './components/ObjDialog'
 export default {
-  name: 'Service',
+  name: 'Language',
   components: { Pagination, ObjDialog, CopyField },
   directives: { permission },
   data() {

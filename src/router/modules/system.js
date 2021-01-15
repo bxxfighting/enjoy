@@ -47,6 +47,19 @@ const systemRouter = {
       meta: { title: 'Gitlab服务', noCache: false, icon: 'el-icon-wallet', sign: 'gitlab_server' }
     },
     {
+      path: 'language',
+      component: () => import('@/views/system/language'),
+      name: 'Language',
+      meta: { title: '编程语言', noCache: false, icon: 'el-icon-magic-stick', sign: 'language' }
+    },
+    {
+      path: 'language/:id(\\d+)',
+      component: () => import('@/views/system/language/detail'),
+      name: 'LanguageDetail',
+      hidden: true,
+      meta: { title: '编程语言详情', noCache: false, sign: 'language', activeMenu: '/system/language' }
+    },
+    {
       path: 'berry_type/:id(\\d+)',
       component: () => import('@/views/system/berry_type/detail'),
       name: 'BerryTypeDetail',

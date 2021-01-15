@@ -3,7 +3,7 @@
     <div slot="header">
       <span>{{ obj.name }}</span>
       <el-button
-        v-permission="[url.updateServiceUrl]"
+        v-permission="[url.updateLanguageUrl]"
         style="float: right; padding: 3px 0"
         type="text"
         icon="el-icon-edit"
@@ -12,7 +12,7 @@
     </div>
     <Tile :fields="obj.fields" />
     <ObjDialog
-      :obj-id="String(objId)"
+      :obj-id="parseInt(objId)"
       :status="obj.form.status"
       :show.sync="obj.form.show"
       @success="getObj"
@@ -25,9 +25,8 @@ import Tile from '@/components/Tile'
 import ObjDialog from '../ObjDialog'
 import permission from '@/directive/permission/index.js'
 import url from '@/api/business/service/url'
-import { getValue } from '@/utils/mix'
 import {
-  getServiceApi as getObjApi
+  getLanguageApi as getObjApi
 } from '@/api/business/service'
 
 export default {
@@ -51,12 +50,7 @@ export default {
         },
         name: '',
         fields: [
-          { name: '标识', sign: 'sign', value: '' },
-          { name: '编程语言', sign: 'language.name', value: '' },
-          { name: '框架', sign: 'frame.name', value: '' },
-          { name: '代码库', sign: 'gitlab.web_url', value: '' },
-          { name: '录入时间', sign: 'dt_create', value: '' },
-          { name: '备注', sign: 'remark', value: '' }
+          { name: '标识', sign: 'sign', value: '' }
         ]
       }
     }
@@ -77,7 +71,7 @@ export default {
         if (resp.code === 0) {
           this.obj.name = resp.data.name
           this.obj.fields = this.obj.fields.map(function(item) {
-            item.value = getValue(resp.data, item.sign)
+            item.value = resp.data[item.sign]
             return item
           })
         }
