@@ -14,6 +14,8 @@ const url = {
   deleteServiceUrl: '/api/v1/business/service/delete/',
   getServiceListUrl: '/api/v1/business/service/list/',
   getServiceUrl: '/api/v1/business/service/',
+  getServiceConfigUrl: '/api/v1/business/service/config/',
+  updateServiceConfigUrl: '/api/v1/business/service/config/update/',
   createServiceDepartmentUrl: '/api/v1/business/service/department/create/',
   deleteServiceDepartmentUrl: '/api/v1/business/service/department/delete/',
   getServiceDepartmentListUrl: '/api/v1/business/service/department/list/',

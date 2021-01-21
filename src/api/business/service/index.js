@@ -121,6 +121,22 @@ export function getServiceApi(data) {
   })
 }
 
+export function getServiceConfigApi(data) {
+  return request({
+    url: url.getServiceConfigUrl,
+    method: 'post',
+    data
+  })
+}
+
+export function updateServiceConfigApi(data) {
+  return request({
+    url: url.updateServiceConfigUrl,
+    method: 'post',
+    data
+  })
+}
+
 export function createServiceDepartmentApi(data) {
   return request({
     url: url.createServiceDepartmentUrl,

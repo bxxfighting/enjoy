@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card>
+    <el-card shadow="never">
       <div slot="header">
         <span> 数据库列表({{ obj.total }}) </span>
         <el-button v-permission="[url.createServiceDatabaseUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
