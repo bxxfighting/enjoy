@@ -77,6 +77,9 @@ export default {
   },
   methods: {
     getObj() {
+      if (this.environmentId === 0) {
+        return
+      }
       this.obj.loading = true
       const data = {
         obj_id: this.objId,
