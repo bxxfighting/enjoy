@@ -47,6 +47,12 @@ const systemRouter = {
       meta: { title: 'Gitlab服务', noCache: false, icon: 'el-icon-wallet', sign: 'gitlab_server' }
     },
     {
+      path: 'jenkins_server',
+      component: () => import('@/views/system/jenkins_server'),
+      name: 'JenkinsServer',
+      meta: { title: 'Jenkins服务', noCache: false, icon: 'el-icon-suitcase-1', sign: 'jenkins_server' }
+    },
+    {
       path: 'language',
       component: () => import('@/views/system/language'),
       name: 'Language',
