@@ -3,7 +3,7 @@
     <el-card>
       <div slot="header">
         <span> 用户列表({{ obj.total }}) </span>
-        <el-button v-permission="[url.syncLdapUserUrl]" icon="el-icon-refresh" type="text" size="small" style="float: right; padding: 3px 0;" @click="syncObj">同步</el-button>
+        <el-button v-permission="[ldap_url.syncLdapUserUrl]" icon="el-icon-refresh" type="text" size="small" style="float: right; padding: 3px 0;" @click="syncObj">同步</el-button>
         <el-button v-permission="[url.createUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 10px;" @click="handleCreateObj">添加</el-button>
       </div>
       <div>
@@ -53,6 +53,8 @@ import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
 import url from '@/api/system/user/url'
+import ldap_url from '@/api/component/ldap/url'
+
 import {
   deleteUserApi as deleteObjApi,
   getUserListApi as getObjListApi
@@ -68,6 +70,7 @@ export default {
   data() {
     return {
       url,
+      ldap_url,
       loading: false,
       obj: {
         total: 0,
