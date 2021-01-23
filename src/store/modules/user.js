@@ -33,11 +33,13 @@ const actions = {
   login({ commit }, userInfo) {
     const { username, password, is_ldap } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password, is_ldap: is_ldap }).then(response => {
-        const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
+      login({ username: username.trim(), password: password, is_ldap: is_ldap }).then(resp => {
+        if (resp.code === 0) {
+          const { data } = resp
+          commit('SET_TOKEN', data.token)
+          setToken(data.token)
+          resolve()
+        }
       }).catch(error => {
         reject(error)
       })

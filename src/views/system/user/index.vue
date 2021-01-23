@@ -3,7 +3,8 @@
     <el-card>
       <div slot="header">
         <span> 用户列表({{ obj.total }}) </span>
-        <el-button v-permission="[url.createUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">添加</el-button>
+        <el-button v-permission="[url.syncLdapUserUrl]" icon="el-icon-refresh" type="text" size="small" style="float: right; padding: 3px 0;" @click="syncObj">同步</el-button>
+        <el-button v-permission="[url.createUserUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 10px;" @click="handleCreateObj">添加</el-button>
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
@@ -13,6 +14,8 @@
             </template>
           </el-table-column>
           <el-table-column prop="name" label="名称" />
+          <el-table-column prop="typ_desc" label="类型" />
+          <el-table-column prop="status_desc" label="状态" />
           <el-table-column prop="email" label="邮箱" />
           <el-table-column prop="phone" label="手机号" />
           <el-table-column
@@ -54,6 +57,9 @@ import {
   deleteUserApi as deleteObjApi,
   getUserListApi as getObjListApi
 } from '@/api/system/user'
+import {
+  syncLdapUserApi as syncObjApi
+} from '@/api/component/ldap'
 import ObjDialog from './components/ObjDialog'
 export default {
   name: 'User',
@@ -120,6 +126,20 @@ export default {
           })
           this.getObjList()
         }
+      })
+    },
+    syncObj() {
+      this.loading = true
+      const data = {}
+      syncObjApi(data).then(resp => {
+        if (resp.code === 0) {
+          this.$notify({
+            message: '操作成功',
+            type: 'success',
+            duration: 2000
+          })
+        }
+        this.loading = false
       })
     }
   }

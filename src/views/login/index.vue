@@ -44,6 +44,9 @@
           </span>
         </el-form-item>
       </el-tooltip>
+      <el-form-item class="is_ldap">
+        <el-checkbox v-model="loginForm.is_ldap">LDAP用户</el-checkbox>
+      </el-form-item>
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
     </el-form>
   </div>
@@ -58,7 +61,7 @@ export default {
       loginForm: {
         username: 'buxingxing',
         password: '123456',
-        is_ldap: false
+        is_ldap: true
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur' }],
@@ -115,7 +118,6 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
@@ -192,6 +194,11 @@ $cursor: #fff;
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
+
+.is_ldap {
+  border: 0px;
+  background: none;
+}
 
 .login-container {
   min-height: 100%;

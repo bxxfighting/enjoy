@@ -11,6 +11,12 @@ const systemRouter = {
   },
   children: [
     {
+      path: 'ldap',
+      component: () => import('@/views/system/ldap'),
+      name: 'Ldap',
+      meta: { title: 'LDAP配置', noCache: false, icon: 'el-icon-s-ticket', sign: 'ldap' }
+    },
+    {
       path: 'aliyun_key',
       component: () => import('@/views/asset/aliyun_key'),
       name: 'AliyunKey',
