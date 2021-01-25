@@ -29,7 +29,7 @@ export function getPermissionListApi(data) {
   return request({
     url: url.getPermissionListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getPermissionApi(data) {
   return request({
     url: url.getPermissionUrl,
     method: 'get',
-    data
+    params: data
   })
 }

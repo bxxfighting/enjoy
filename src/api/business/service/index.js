@@ -29,7 +29,7 @@ export function getFrameListApi(data) {
   return request({
     url: url.getFrameListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getFrameApi(data) {
   return request({
     url: url.getFrameUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -69,7 +69,7 @@ export function getLanguageListApi(data) {
   return request({
     url: url.getLanguageListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -77,7 +77,7 @@ export function getLanguageApi(data) {
   return request({
     url: url.getLanguageUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -109,7 +109,7 @@ export function getServiceListApi(data) {
   return request({
     url: url.getServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -117,7 +117,7 @@ export function getServiceApi(data) {
   return request({
     url: url.getServiceUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -125,7 +125,7 @@ export function getServiceConfigApi(data) {
   return request({
     url: url.getServiceConfigUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -157,7 +157,7 @@ export function getServiceDepartmentListApi(data) {
   return request({
     url: url.getServiceDepartmentListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -189,7 +189,7 @@ export function getServiceUserListApi(data) {
   return request({
     url: url.getServiceUserListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -213,7 +213,7 @@ export function getServiceEnvironmentListApi(data) {
   return request({
     url: url.getServiceEnvironmentListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -237,7 +237,7 @@ export function getServiceAssetListApi(data) {
   return request({
     url: url.getServiceAssetListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -261,7 +261,7 @@ export function getServiceEcsListApi(data) {
   return request({
     url: url.getServiceEcsListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -285,7 +285,7 @@ export function getServiceServerGroupListApi(data) {
   return request({
     url: url.getServiceServerGroupListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -309,7 +309,7 @@ export function getServiceDatabaseListApi(data) {
   return request({
     url: url.getServiceDatabaseListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -333,7 +333,7 @@ export function getServiceRedisListApi(data) {
   return request({
     url: url.getServiceRedisListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -357,7 +357,7 @@ export function getServiceMongoListApi(data) {
   return request({
     url: url.getServiceMongoListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -381,7 +381,7 @@ export function getServiceDomainListApi(data) {
   return request({
     url: url.getServiceDomainListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -405,6 +405,6 @@ export function getServiceRocketTopicListApi(data) {
   return request({
     url: url.getServiceRocketTopicListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

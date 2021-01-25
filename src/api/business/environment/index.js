@@ -29,7 +29,7 @@ export function getEnvironmentListApi(data) {
   return request({
     url: url.getEnvironmentListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getEnvironmentApi(data) {
   return request({
     url: url.getEnvironmentUrl,
     method: 'get',
-    data
+    params: data
   })
 }

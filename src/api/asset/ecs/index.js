@@ -5,7 +5,7 @@ export function getEcsListApi(data) {
   return request({
     url: url.getEcsListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -21,7 +21,7 @@ export function getEcsApi(data) {
   return request({
     url: url.getEcsUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -29,7 +29,7 @@ export function getEcsServiceListApi(data) {
   return request({
     url: url.getEcsServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getEcsDomainListApi(data) {
   return request({
     url: url.getEcsDomainListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

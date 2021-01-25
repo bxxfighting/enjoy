@@ -29,7 +29,7 @@ export function getJenkinsServerListApi(data) {
   return request({
     url: url.getJenkinsServerListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getJenkinsServerApi(data) {
   return request({
     url: url.getJenkinsServerUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -45,7 +45,7 @@ export function getJenkinsJobListApi(data) {
   return request({
     url: url.getJenkinsJobListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 

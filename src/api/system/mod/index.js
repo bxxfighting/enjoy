@@ -29,7 +29,7 @@ export function getModListApi(data) {
   return request({
     url: url.getModListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getModApi(data) {
   return request({
     url: url.getModUrl,
     method: 'get',
-    data
+    params: data
   })
 }

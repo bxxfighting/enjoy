@@ -29,7 +29,7 @@ export function getBerryTypeListApi(data) {
   return request({
     url: url.getBerryTypeListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getBerryTypeApi(data) {
   return request({
     url: url.getBerryTypeUrl,
     method: 'get',
-    data
+    params: data
   })
 }

@@ -51,7 +51,7 @@ export function getUserListApi(data) {
   return request({
     url: url.getUserListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -59,7 +59,7 @@ export function getUserRoleListApi(data) {
   return request({
     url: url.getUserRoleListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -67,7 +67,7 @@ export function getUserDepartmentListApi(data) {
   return request({
     url: url.getUserDepartmentListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -75,6 +75,6 @@ export function getUserApi(data) {
   return request({
     url: url.getUserUrl,
     method: 'get',
-    data
+    params: data
   })
 }

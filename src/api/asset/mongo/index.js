@@ -5,7 +5,7 @@ export function getMongoListApi(data) {
   return request({
     url: url.getMongoListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -21,7 +21,7 @@ export function getMongoApi(data) {
   return request({
     url: url.getMongoUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -29,7 +29,7 @@ export function getMongoAccountListApi(data) {
   return request({
     url: url.getMongoAccountListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getMongoAccountApi(data) {
   return request({
     url: url.getMongoAccountUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -53,6 +53,6 @@ export function getMongoServiceListApi(data) {
   return request({
     url: url.getMongoServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

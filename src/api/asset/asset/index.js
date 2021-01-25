@@ -29,7 +29,7 @@ export function getAssetListApi(data) {
   return request({
     url: url.getAssetListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,6 +37,6 @@ export function getAssetApi(data) {
   return request({
     url: url.getAssetUrl,
     method: 'get',
-    data
+    params: data
   })
 }

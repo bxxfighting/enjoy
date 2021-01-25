@@ -5,7 +5,7 @@ export function getSlbListApi(data) {
   return request({
     url: url.getSlbListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -21,7 +21,7 @@ export function getSlbApi(data) {
   return request({
     url: url.getSlbUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -29,7 +29,7 @@ export function getSlbServerGroupListApi(data) {
   return request({
     url: url.getSlbServerGroupListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getSlbServerGroupApi(data) {
   return request({
     url: url.getSlbServerGroupUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -45,7 +45,7 @@ export function getSlbServerGroupEcsListApi(data) {
   return request({
     url: url.getSlbServerGroupEcsListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -53,7 +53,7 @@ export function getSlbServerGroupServiceListApi(data) {
   return request({
     url: url.getSlbServerGroupServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -61,6 +61,6 @@ export function getSlbDomainListApi(data) {
   return request({
     url: url.getSlbDomainListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

@@ -29,7 +29,7 @@ export function getGitlabServerListApi(data) {
   return request({
     url: url.getGitlabServerListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getGitlabServerApi(data) {
   return request({
     url: url.getGitlabServerUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -45,7 +45,7 @@ export function getGitlabProjectListApi(data) {
   return request({
     url: url.getGitlabProjectListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 

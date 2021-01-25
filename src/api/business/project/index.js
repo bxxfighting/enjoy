@@ -29,7 +29,7 @@ export function getProjectListApi(data) {
   return request({
     url: url.getProjectListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getProjectApi(data) {
   return request({
     url: url.getProjectUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -69,7 +69,7 @@ export function getProjectUserListApi(data) {
   return request({
     url: url.getProjectUserListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -77,6 +77,6 @@ export function getProjectServiceListApi(data) {
   return request({
     url: url.getProjectServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

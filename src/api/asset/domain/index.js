@@ -5,7 +5,7 @@ export function getDomainListApi(data) {
   return request({
     url: url.getDomainListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -21,7 +21,7 @@ export function getDomainApi(data) {
   return request({
     url: url.getDomainUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -29,7 +29,7 @@ export function getDomainRecordListApi(data) {
   return request({
     url: url.getDomainRecordListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getDomainRecordApi(data) {
   return request({
     url: url.getDomainRecordUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -45,6 +45,6 @@ export function getDomainServiceListApi(data) {
   return request({
     url: url.getDomainServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

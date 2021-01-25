@@ -5,7 +5,7 @@ export function getRedisListApi(data) {
   return request({
     url: url.getRedisListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -21,7 +21,7 @@ export function getRedisApi(data) {
   return request({
     url: url.getRedisUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -29,7 +29,7 @@ export function getRedisAccountListApi(data) {
   return request({
     url: url.getRedisAccountListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getRedisAccountApi(data) {
   return request({
     url: url.getRedisAccountUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -53,6 +53,6 @@ export function getRedisServiceListApi(data) {
   return request({
     url: url.getRedisServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }

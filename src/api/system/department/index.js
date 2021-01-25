@@ -29,7 +29,7 @@ export function getDepartmentListApi(data) {
   return request({
     url: url.getDepartmentListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -37,7 +37,7 @@ export function getDepartmentApi(data) {
   return request({
     url: url.getDepartmentUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -61,7 +61,7 @@ export function getDepartmentUserListApi(data) {
   return request({
     url: url.getDepartmentUserListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
 
@@ -69,6 +69,6 @@ export function getDepartmentServiceListApi(data) {
   return request({
     url: url.getDepartmentServiceListUrl,
     method: 'get',
-    data
+    params: data
   })
 }
