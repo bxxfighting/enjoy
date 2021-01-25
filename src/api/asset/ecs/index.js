@@ -4,7 +4,7 @@ import url from './url'
 export function getEcsListApi(data) {
   return request({
     url: url.getEcsListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncEcsApi(data) {
 export function getEcsApi(data) {
   return request({
     url: url.getEcsUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getEcsApi(data) {
 export function getEcsServiceListApi(data) {
   return request({
     url: url.getEcsServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getEcsServiceListApi(data) {
 export function getEcsDomainListApi(data) {
   return request({
     url: url.getEcsDomainListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

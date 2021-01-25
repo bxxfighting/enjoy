@@ -4,7 +4,7 @@ import url from './url'
 export function getRdsListApi(data) {
   return request({
     url: url.getRdsListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncRdsApi(data) {
 export function getRdsApi(data) {
   return request({
     url: url.getRdsUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getRdsApi(data) {
 export function getRdsDatabaseListApi(data) {
   return request({
     url: url.getRdsDatabaseListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getRdsDatabaseListApi(data) {
 export function getRdsDatabaseApi(data) {
   return request({
     url: url.getRdsDatabaseUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getRdsDatabaseApi(data) {
 export function getRdsDatabaseAccountListApi(data) {
   return request({
     url: url.getRdsDatabaseAccountListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -52,7 +52,7 @@ export function getRdsDatabaseAccountListApi(data) {
 export function getRdsAccountListApi(data) {
   return request({
     url: url.getRdsAccountListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -60,7 +60,7 @@ export function getRdsAccountListApi(data) {
 export function getRdsAccountApi(data) {
   return request({
     url: url.getRdsAccountUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -76,7 +76,7 @@ export function updateRdsAccountApi(data) {
 export function getRdsAccountDatabaseListApi(data) {
   return request({
     url: url.getRdsAccountDatabaseListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -84,7 +84,7 @@ export function getRdsAccountDatabaseListApi(data) {
 export function getRdsDatabaseServiceListApi(data) {
   return request({
     url: url.getRdsDatabaseServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

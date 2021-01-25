@@ -4,7 +4,7 @@ import url from './url'
 export function getRocketListApi(data) {
   return request({
     url: url.getRocketListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncRocketApi(data) {
 export function getRocketApi(data) {
   return request({
     url: url.getRocketUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getRocketApi(data) {
 export function getRocketTopicListApi(data) {
   return request({
     url: url.getRocketTopicListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getRocketTopicListApi(data) {
 export function getRocketTopicApi(data) {
   return request({
     url: url.getRocketTopicUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -28,7 +28,7 @@ export function deleteAssetApi(data) {
 export function getAssetListApi(data) {
   return request({
     url: url.getAssetListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getAssetListApi(data) {
 export function getAssetApi(data) {
   return request({
     url: url.getAssetUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -4,7 +4,7 @@ import url from './url'
 export function getMongoListApi(data) {
   return request({
     url: url.getMongoListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncMongoApi(data) {
 export function getMongoApi(data) {
   return request({
     url: url.getMongoUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getMongoApi(data) {
 export function getMongoAccountListApi(data) {
   return request({
     url: url.getMongoAccountListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getMongoAccountListApi(data) {
 export function getMongoAccountApi(data) {
   return request({
     url: url.getMongoAccountUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -52,7 +52,7 @@ export function updateMongoAccountApi(data) {
 export function getMongoServiceListApi(data) {
   return request({
     url: url.getMongoServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -12,7 +12,7 @@ export function login(data) {
 export function getInfo() {
   return request({
     url: url.currentUserUrl,
-    method: 'post'
+    method: 'get'
   })
 }
 
@@ -50,7 +50,7 @@ export function deleteUserApi(data) {
 export function getUserListApi(data) {
   return request({
     url: url.getUserListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -58,7 +58,7 @@ export function getUserListApi(data) {
 export function getUserRoleListApi(data) {
   return request({
     url: url.getUserRoleListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -66,7 +66,7 @@ export function getUserRoleListApi(data) {
 export function getUserDepartmentListApi(data) {
   return request({
     url: url.getUserDepartmentListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -74,7 +74,7 @@ export function getUserDepartmentListApi(data) {
 export function getUserApi(data) {
   return request({
     url: url.getUserUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

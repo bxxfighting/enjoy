@@ -28,7 +28,7 @@ export function deleteProjectApi(data) {
 export function getProjectListApi(data) {
   return request({
     url: url.getProjectListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getProjectListApi(data) {
 export function getProjectApi(data) {
   return request({
     url: url.getProjectUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -68,7 +68,7 @@ export function deleteProjectUserApi(data) {
 export function getProjectUserListApi(data) {
   return request({
     url: url.getProjectUserListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -76,7 +76,7 @@ export function getProjectUserListApi(data) {
 export function getProjectServiceListApi(data) {
   return request({
     url: url.getProjectServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

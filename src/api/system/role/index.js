@@ -28,7 +28,7 @@ export function deleteRoleApi(data) {
 export function getRoleListApi(data) {
   return request({
     url: url.getRoleListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getRoleListApi(data) {
 export function getRoleApi(data) {
   return request({
     url: url.getRoleUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -60,7 +60,7 @@ export function deleteRoleUserApi(data) {
 export function getRoleUserListApi(data) {
   return request({
     url: url.getRoleUserListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -84,7 +84,7 @@ export function setRolePermissionApi(data) {
 export function getRoleModPermissionApi(data) {
   return request({
     url: url.getRoleModPermissionUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

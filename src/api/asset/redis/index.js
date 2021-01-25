@@ -4,7 +4,7 @@ import url from './url'
 export function getRedisListApi(data) {
   return request({
     url: url.getRedisListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncRedisApi(data) {
 export function getRedisApi(data) {
   return request({
     url: url.getRedisUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getRedisApi(data) {
 export function getRedisAccountListApi(data) {
   return request({
     url: url.getRedisAccountListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getRedisAccountListApi(data) {
 export function getRedisAccountApi(data) {
   return request({
     url: url.getRedisAccountUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -52,7 +52,7 @@ export function updateRedisAccountApi(data) {
 export function getRedisServiceListApi(data) {
   return request({
     url: url.getRedisServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

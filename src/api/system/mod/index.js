@@ -28,7 +28,7 @@ export function deleteModApi(data) {
 export function getModListApi(data) {
   return request({
     url: url.getModListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getModListApi(data) {
 export function getModApi(data) {
   return request({
     url: url.getModUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -28,7 +28,7 @@ export function deleteEnvironmentApi(data) {
 export function getEnvironmentListApi(data) {
   return request({
     url: url.getEnvironmentListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getEnvironmentListApi(data) {
 export function getEnvironmentApi(data) {
   return request({
     url: url.getEnvironmentUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

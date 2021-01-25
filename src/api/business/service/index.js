@@ -28,7 +28,7 @@ export function deleteFrameApi(data) {
 export function getFrameListApi(data) {
   return request({
     url: url.getFrameListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getFrameListApi(data) {
 export function getFrameApi(data) {
   return request({
     url: url.getFrameUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -68,7 +68,7 @@ export function deleteLanguageApi(data) {
 export function getLanguageListApi(data) {
   return request({
     url: url.getLanguageListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -76,7 +76,7 @@ export function getLanguageListApi(data) {
 export function getLanguageApi(data) {
   return request({
     url: url.getLanguageUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -108,7 +108,7 @@ export function deleteServiceApi(data) {
 export function getServiceListApi(data) {
   return request({
     url: url.getServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -116,7 +116,7 @@ export function getServiceListApi(data) {
 export function getServiceApi(data) {
   return request({
     url: url.getServiceUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -124,7 +124,7 @@ export function getServiceApi(data) {
 export function getServiceConfigApi(data) {
   return request({
     url: url.getServiceConfigUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -156,7 +156,7 @@ export function deleteServiceDepartmentApi(data) {
 export function getServiceDepartmentListApi(data) {
   return request({
     url: url.getServiceDepartmentListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -188,7 +188,7 @@ export function deleteServiceUserApi(data) {
 export function getServiceUserListApi(data) {
   return request({
     url: url.getServiceUserListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -212,7 +212,7 @@ export function deleteServiceEnvironmentApi(data) {
 export function getServiceEnvironmentListApi(data) {
   return request({
     url: url.getServiceEnvironmentListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -236,7 +236,7 @@ export function deleteServiceAssetApi(data) {
 export function getServiceAssetListApi(data) {
   return request({
     url: url.getServiceAssetListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -260,7 +260,7 @@ export function deleteServiceEcsApi(data) {
 export function getServiceEcsListApi(data) {
   return request({
     url: url.getServiceEcsListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -284,7 +284,7 @@ export function deleteServiceServerGroupApi(data) {
 export function getServiceServerGroupListApi(data) {
   return request({
     url: url.getServiceServerGroupListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -308,7 +308,7 @@ export function deleteServiceDatabaseApi(data) {
 export function getServiceDatabaseListApi(data) {
   return request({
     url: url.getServiceDatabaseListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -332,7 +332,7 @@ export function deleteServiceRedisApi(data) {
 export function getServiceRedisListApi(data) {
   return request({
     url: url.getServiceRedisListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -356,7 +356,7 @@ export function deleteServiceMongoApi(data) {
 export function getServiceMongoListApi(data) {
   return request({
     url: url.getServiceMongoListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -380,7 +380,7 @@ export function deleteServiceDomainApi(data) {
 export function getServiceDomainListApi(data) {
   return request({
     url: url.getServiceDomainListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -404,7 +404,7 @@ export function deleteServiceRocketTopicApi(data) {
 export function getServiceRocketTopicListApi(data) {
   return request({
     url: url.getServiceRocketTopicListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -12,7 +12,7 @@ export function updateLdapConfigApi(data) {
 export function getLdapConfigApi(data) {
   return request({
     url: url.getLdapConfigUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

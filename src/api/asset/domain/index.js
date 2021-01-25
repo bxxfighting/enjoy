@@ -4,7 +4,7 @@ import url from './url'
 export function getDomainListApi(data) {
   return request({
     url: url.getDomainListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncDomainApi(data) {
 export function getDomainApi(data) {
   return request({
     url: url.getDomainUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getDomainApi(data) {
 export function getDomainRecordListApi(data) {
   return request({
     url: url.getDomainRecordListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getDomainRecordListApi(data) {
 export function getDomainRecordApi(data) {
   return request({
     url: url.getDomainRecordUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getDomainRecordApi(data) {
 export function getDomainServiceListApi(data) {
   return request({
     url: url.getDomainServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

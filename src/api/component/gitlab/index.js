@@ -28,7 +28,7 @@ export function deleteGitlabServerApi(data) {
 export function getGitlabServerListApi(data) {
   return request({
     url: url.getGitlabServerListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getGitlabServerListApi(data) {
 export function getGitlabServerApi(data) {
   return request({
     url: url.getGitlabServerUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getGitlabServerApi(data) {
 export function getGitlabProjectListApi(data) {
   return request({
     url: url.getGitlabProjectListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

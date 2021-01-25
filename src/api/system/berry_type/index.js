@@ -28,7 +28,7 @@ export function deleteBerryTypeApi(data) {
 export function getBerryTypeListApi(data) {
   return request({
     url: url.getBerryTypeListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getBerryTypeListApi(data) {
 export function getBerryTypeApi(data) {
   return request({
     url: url.getBerryTypeUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

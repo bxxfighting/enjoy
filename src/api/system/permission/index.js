@@ -28,7 +28,7 @@ export function deletePermissionApi(data) {
 export function getPermissionListApi(data) {
   return request({
     url: url.getPermissionListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getPermissionListApi(data) {
 export function getPermissionApi(data) {
   return request({
     url: url.getPermissionUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

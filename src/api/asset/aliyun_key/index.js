@@ -36,7 +36,7 @@ export function setAliyunKeyStatusApi(data) {
 export function getAliyunKeyListApi(data) {
   return request({
     url: url.getAliyunKeyListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getAliyunKeyListApi(data) {
 export function getAliyunKeyApi(data) {
   return request({
     url: url.getAliyunKeyUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

@@ -4,7 +4,7 @@ import url from './url'
 export function getSlbListApi(data) {
   return request({
     url: url.getSlbListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function syncSlbApi(data) {
 export function getSlbApi(data) {
   return request({
     url: url.getSlbUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getSlbApi(data) {
 export function getSlbServerGroupListApi(data) {
   return request({
     url: url.getSlbServerGroupListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getSlbServerGroupListApi(data) {
 export function getSlbServerGroupApi(data) {
   return request({
     url: url.getSlbServerGroupUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getSlbServerGroupApi(data) {
 export function getSlbServerGroupEcsListApi(data) {
   return request({
     url: url.getSlbServerGroupEcsListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -52,7 +52,7 @@ export function getSlbServerGroupEcsListApi(data) {
 export function getSlbServerGroupServiceListApi(data) {
   return request({
     url: url.getSlbServerGroupServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -60,7 +60,7 @@ export function getSlbServerGroupServiceListApi(data) {
 export function getSlbDomainListApi(data) {
   return request({
     url: url.getSlbDomainListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

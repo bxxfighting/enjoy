@@ -12,7 +12,7 @@ export function setRegionStatusApi(data) {
 export function getRegionListApi(data) {
   return request({
     url: url.getRegionListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -20,7 +20,7 @@ export function getRegionListApi(data) {
 export function getRegionApi(data) {
   return request({
     url: url.getRegionUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -28,7 +28,7 @@ export function getRegionApi(data) {
 export function getZoneListApi(data) {
   return request({
     url: url.getZoneListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getZoneListApi(data) {
 export function getZoneApi(data) {
   return request({
     url: url.getZoneUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

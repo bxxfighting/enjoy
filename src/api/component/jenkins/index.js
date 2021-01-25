@@ -28,7 +28,7 @@ export function deleteJenkinsServerApi(data) {
 export function getJenkinsServerListApi(data) {
   return request({
     url: url.getJenkinsServerListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getJenkinsServerListApi(data) {
 export function getJenkinsServerApi(data) {
   return request({
     url: url.getJenkinsServerUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -44,7 +44,7 @@ export function getJenkinsServerApi(data) {
 export function getJenkinsJobListApi(data) {
   return request({
     url: url.getJenkinsJobListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }

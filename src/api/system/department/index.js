@@ -28,7 +28,7 @@ export function deleteDepartmentApi(data) {
 export function getDepartmentListApi(data) {
   return request({
     url: url.getDepartmentListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -36,7 +36,7 @@ export function getDepartmentListApi(data) {
 export function getDepartmentApi(data) {
   return request({
     url: url.getDepartmentUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -60,7 +60,7 @@ export function deleteDepartmentUserApi(data) {
 export function getDepartmentUserListApi(data) {
   return request({
     url: url.getDepartmentUserListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
@@ -68,7 +68,7 @@ export function getDepartmentUserListApi(data) {
 export function getDepartmentServiceListApi(data) {
   return request({
     url: url.getDepartmentServiceListUrl,
-    method: 'post',
+    method: 'get',
     data
   })
 }
