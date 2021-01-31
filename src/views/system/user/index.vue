@@ -29,8 +29,8 @@
               >
                 <el-button size="mini" type="text" style="margin-right: 8px"> 查看 </el-button>
               </router-link>
-              <el-button v-permission="[url.updateUserUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">编辑</el-button>
-              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
+              <el-button v-if="row.typ===10" v-permission="[url.updateUserUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">编辑</el-button>
+              <el-popconfirm v-if="row.typ===10" title="确定删除?" @onConfirm="deleteObj(row.id)">
                 <el-button slot="reference" v-permission="[url.deleteUserUrl]" size="mini" type="text">删除</el-button>
               </el-popconfirm>
             </template>
