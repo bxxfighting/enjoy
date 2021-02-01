@@ -11,6 +11,12 @@ const systemRouter = {
   },
   children: [
     {
+      path: 'component_config',
+      component: () => import('@/views/system/component_config'),
+      name: 'ComponentConfig',
+      meta: { title: '组件配置', noCache: false, icon: 'el-icon-s-ticket', sign: 'component_config' }
+    },
+    {
       path: 'ldap',
       component: () => import('@/views/system/ldap'),
       name: 'Ldap',
