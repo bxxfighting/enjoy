@@ -17,12 +17,6 @@ const systemRouter = {
       meta: { title: '组件配置', noCache: false, icon: 'el-icon-s-ticket', sign: 'component_config' }
     },
     {
-      path: 'ldap',
-      component: () => import('@/views/system/ldap'),
-      name: 'Ldap',
-      meta: { title: 'LDAP配置', noCache: false, icon: 'el-icon-s-ticket', sign: 'ldap' }
-    },
-    {
       path: 'aliyun_key',
       component: () => import('@/views/asset/aliyun_key'),
       name: 'AliyunKey',
@@ -51,18 +45,6 @@ const systemRouter = {
       component: () => import('@/views/system/berry_type'),
       name: 'BerryType',
       meta: { title: '任务类型管理', noCache: false, icon: 'el-icon-guide', sign: 'berry_type' }
-    },
-    {
-      path: 'gitlab_server',
-      component: () => import('@/views/system/gitlab_server'),
-      name: 'GitlabServer',
-      meta: { title: 'Gitlab服务', noCache: false, icon: 'el-icon-wallet', sign: 'gitlab_server' }
-    },
-    {
-      path: 'jenkins_server',
-      component: () => import('@/views/system/jenkins_server'),
-      name: 'JenkinsServer',
-      meta: { title: 'Jenkins服务', noCache: false, icon: 'el-icon-suitcase-1', sign: 'jenkins_server' }
     },
     {
       path: 'language',
