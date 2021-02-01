@@ -1,155 +1,80 @@
 <template>
-  <div>
-    <el-card shadow="never">
-      <div slot="header">
-        <span> Gitlab服务列表({{ obj.total }}) </span>
-        <el-button v-permission="[url.createGitlabServerUrl]" icon="el-icon-plus" type="text" size="small" style="float: right; padding: 3px 0;" @click="handleCreateObj">
-          添加
-        </el-button>
-      </div>
-      <div>
-        <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column
-            prop="name"
-            label="名称"
-          />
-          <el-table-column
-            prop="host"
-            label="地址"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.host" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="username"
-            label="用户名"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.username" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="password"
-            label="密码"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.password" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="token"
-            label="Token"
-          >
-            <template slot-scope="{row}">
-              <CopyField :value="row.token" />
-            </template>
-          </el-table-column>
-          <el-table-column
-            fixed="right"
-            label="操作"
-            width="160"
-          >
-            <template slot-scope="{row}">
-              <el-button v-permission="[url.updateGitlabServerUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
-                编辑
-              </el-button>
-              <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
-                <el-button slot="reference" v-permission="[url.deleteGitlabServerUrl]" size="mini" type="text">
-                  删除
-                </el-button>
-              </el-popconfirm>
-            </template>
-          </el-table-column>
-        </el-table>
-        <pagination v-show="obj.total>0" :total="obj.total" :page.sync="obj.filter.page_num" :limit.sync="obj.filter.page_size" @pagination="getObjList" />
-      </div>
-    </el-card>
+  <el-card shadow="never">
+    <div slot="header">
+      <span>Gitlab配置</span>
+      <el-button
+        v-permission="[url.updateGitlabServerUrl]"
+        style="float: right; padding: 3px 0"
+        type="text"
+        icon="el-icon-edit"
+        @click="handleUpdate"
+      > 编辑 </el-button>
+    </div>
+    <Tile :fields="obj.fields" />
     <ObjDialog
-      :obj-id="parseInt(obj.form.obj_id)"
-      :status.sync="obj.form.status"
+      :status="obj.form.status"
       :show.sync="obj.form.show"
-      @success="getObjList"
+      @success="getObj"
     />
-  </div>
+  </el-card>
 </template>
 
 <script>
-import permission from '@/directive/permission/index.js'
-import Pagination from '@/components/Pagination'
-import CopyField from '@/components/Field/CopyField'
-import url from '@/api/component/gitlab/url'
-import {
-  deleteGitlabServerApi as deleteObjApi,
-  getGitlabServerListApi as getObjListApi
-} from '@/api/component/gitlab'
+import Tile from '@/components/Tile'
 import ObjDialog from './components/ObjDialog'
+import permission from '@/directive/permission/index.js'
+import url from '@/api/component/gitlab/url'
+import { getValue } from '@/utils/mix'
+import {
+  getGitlabServerApi as getObjApi
+} from '@/api/component/gitlab'
+
 export default {
   name: 'GitlabServer',
-  components: { Pagination, ObjDialog, CopyField },
+  components: { Tile, ObjDialog },
   directives: { permission },
   data() {
     return {
       url,
-      loading: false,
       obj: {
-        total: 0,
-        dataList: [],
-        obj_id: null,
-        filter: {
-          page_num: 1,
-          page_size: 10
-        },
+        loading: false,
         form: {
-          obj_id: null,
           show: false,
-          status: 'create'
-        }
+          status: 'update'
+        },
+        fields: [
+          { name: '名称', sign: 'name', value: '' },
+          { name: '地址', sign: 'host', value: '' },
+          { name: '用户名', sign: 'username', value: '' },
+          { name: '密码', sign: 'password', value: '' },
+          { name: 'Token', sign: 'token', value: '' }
+        ]
       }
     }
   },
   created() {
-    this.getObjList()
+    this.getObj()
   },
   activated() {
-    this.getObjList()
+    this.getObj()
   },
   methods: {
-    getObjList() {
-      this.loading = true
-      const data = this.obj.filter
-      getObjListApi(data).then(resp => {
+    getObj() {
+      this.obj.loading = true
+      const data = {}
+      getObjApi(data).then(resp => {
         if (resp.code === 0) {
-          this.obj.dataList = resp.data.data_list
-          this.obj.total = resp.data.total
-        }
-        this.loading = false
-      })
-    },
-    handleCreateObj() {
-      this.obj.form.status = 'create'
-      this.obj.form.show = true
-    },
-    handleUpdateObj(row) {
-      this.obj.form.obj_id = row.id
-      this.obj.form.status = 'update'
-      this.obj.form.show = true
-    },
-    deleteObj(obj_id) {
-      this.loading = true
-      const data = {
-        obj_id: parseInt(obj_id)
-      }
-      deleteObjApi(data).then(resp => {
-        if (resp.code === 0) {
-          this.$notify({
-            message: '操作成功',
-            type: 'success',
-            duration: 2000
+          this.obj.fields = this.obj.fields.map(function(item) {
+            item.value = getValue(resp.data, item.sign)
+            return item
           })
-          this.getObjList()
         }
+        this.obj.loading = false
       })
+    },
+    handleUpdate() {
+      this.obj.form.show = true
+      this.obj.form.status = 'update'
     }
   }
 }

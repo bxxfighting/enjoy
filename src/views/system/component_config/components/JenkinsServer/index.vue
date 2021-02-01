@@ -65,7 +65,6 @@
             </template>
           </el-table-column>
         </el-table>
-        <pagination v-show="obj.total>0" :total="obj.total" :page.sync="obj.filter.page_num" :limit.sync="obj.filter.page_size" @pagination="getObjList" />
       </div>
     </el-card>
     <ObjDialog
@@ -79,7 +78,6 @@
 
 <script>
 import permission from '@/directive/permission/index.js'
-import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
 import url from '@/api/component/jenkins/url'
 import {
@@ -89,7 +87,7 @@ import {
 import ObjDialog from './components/ObjDialog'
 export default {
   name: 'JenkinsServer',
-  components: { Pagination, ObjDialog, CopyField },
+  components: { ObjDialog, CopyField },
   directives: { permission },
   data() {
     return {
@@ -100,8 +98,6 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
-          page_num: 1,
-          page_size: 10
         },
         form: {
           obj_id: null,

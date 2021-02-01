@@ -26,7 +26,6 @@
 
 <script>
 import {
-  createGitlabServerApi as createObjApi,
   updateGitlabServerApi as updateObjApi,
   getGitlabServerApi as getObjApi
 } from '@/api/component/gitlab'
@@ -88,7 +87,6 @@ export default {
     getObj() {
       this.loading = true
       const data = {
-        obj_id: this.objId
       }
       getObjApi(data).then(resp => {
         if (resp.code === 0) {
@@ -108,38 +106,15 @@ export default {
       this.$emit('update:show', false)
     },
     opObj() {
-      if (this.status === 'create') {
-        this.createObj()
-      } else if (this.status === 'update') {
+      if (this.status === 'update') {
         this.updateObj()
       }
-    },
-    createObj() {
-      this.$refs['form'].validate((valid) => {
-        if (valid) {
-          this.loading = true
-          const data = this.form
-          createObjApi(data).then(resp => {
-            if (resp.code === 0) {
-              this.$emit('update:show', false)
-              this.$notify({
-                message: '操作成功',
-                type: 'success',
-                duration: 2000
-              })
-              this.$emit('success')
-            }
-            this.loading = false
-          })
-        }
-      })
     },
     updateObj() {
       this.$refs['form'].validate((valid) => {
         if (valid) {
           this.loading = true
           const data = this.form
-          data['obj_id'] = this.objId
           updateObjApi(data).then(resp => {
             if (resp.code === 0) {
               this.$emit('update:show', false)
