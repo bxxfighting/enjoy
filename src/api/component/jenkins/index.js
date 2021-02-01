@@ -1,35 +1,11 @@
 import request from '@/utils/request'
 import url from './url'
 
-export function createJenkinsServerApi(data) {
-  return request({
-    url: url.createJenkinsServerUrl,
-    method: 'post',
-    data
-  })
-}
-
 export function updateJenkinsServerApi(data) {
   return request({
     url: url.updateJenkinsServerUrl,
     method: 'post',
     data
-  })
-}
-
-export function deleteJenkinsServerApi(data) {
-  return request({
-    url: url.deleteJenkinsServerUrl,
-    method: 'post',
-    data
-  })
-}
-
-export function getJenkinsServerListApi(data) {
-  return request({
-    url: url.getJenkinsServerListUrl,
-    method: 'get',
-    params: data
   })
 }
 

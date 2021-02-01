@@ -43,7 +43,6 @@ export default {
           status: 'update'
         },
         fields: [
-          { name: '名称', sign: 'name', value: '' },
           { name: '地址', sign: 'host', value: '' },
           { name: '用户名', sign: 'username', value: '' },
           { name: '密码', sign: 'password', value: '' },

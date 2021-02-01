@@ -1,9 +1,6 @@
 <template>
   <el-dialog :title="titleMap[status]" :visible.sync="visible" :close-on-click-modal="false" @open="open" @close="$emit('update:show', false)">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-      <el-form-item label="名称" prop="name">
-        <el-input v-model="form.name" />
-      </el-form-item>
       <el-form-item label="地址" prop="host">
         <el-input v-model="form.host" />
       </el-form-item>
@@ -26,7 +23,6 @@
 
 <script>
 import {
-  createJenkinsServerApi as createObjApi,
   updateJenkinsServerApi as updateObjApi,
   getJenkinsServerApi as getObjApi
 } from '@/api/component/jenkins'
@@ -55,14 +51,12 @@ export default {
         update: '编辑'
       },
       form: {
-        name: '',
         host: '',
         username: '',
         password: '',
         token: ''
       },
       rules: {
-        name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
         host: [{ required: true, message: '请输入地址', trigger: 'blur' }],
         username: [{ required: true, message: '用户名', trigger: 'blur' }],
         password: [{ required: true, message: '密码', trigger: 'blur' }],
@@ -98,7 +92,6 @@ export default {
       })
     },
     resetForm() {
-      this.form.name = ''
       this.form.host = ''
       this.form.username = ''
       this.form.password = ''
@@ -114,32 +107,11 @@ export default {
         this.updateObj()
       }
     },
-    createObj() {
-      this.$refs['form'].validate((valid) => {
-        if (valid) {
-          this.loading = true
-          const data = this.form
-          createObjApi(data).then(resp => {
-            if (resp.code === 0) {
-              this.$emit('update:show', false)
-              this.$notify({
-                message: '操作成功',
-                type: 'success',
-                duration: 2000
-              })
-              this.$emit('success')
-            }
-            this.loading = false
-          })
-        }
-      })
-    },
     updateObj() {
       this.$refs['form'].validate((valid) => {
         if (valid) {
           this.loading = true
           const data = this.form
-          data['obj_id'] = this.objId
           updateObjApi(data).then(resp => {
             if (resp.code === 0) {
               this.$emit('update:show', false)
