@@ -9,6 +9,30 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
+          <el-table-column type="expand">
+            <template slot-scope="{row}">
+              <el-table :data="row.frames">
+                <el-table-column prop="name" label="名称" />
+                <el-table-column prop="sign" label="标识" />
+                <el-table-column
+                  fixed="right"
+                  label="操作"
+                  width="160"
+                >
+                  <template slot-scope="{row}">
+                    <el-button v-permission="[url.updateFrameUrl]" size="mini" type="text" style="margin-right: 8px" @click="handleUpdateObj(row)">
+                      编辑
+                    </el-button>
+                    <el-popconfirm title="确定删除?" @onConfirm="deleteObj(row.id)">
+                      <el-button slot="reference" v-permission="[url.deleteFrameUrl]" size="mini" type="text">
+                        删除
+                      </el-button>
+                    </el-popconfirm>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </template>
+          </el-table-column>
           <el-table-column
             prop="name"
             label="名称"
