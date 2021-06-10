@@ -1,5 +1,6 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <RedisFilter :keyword.sync="obj.filter.keyword" @change="getObjList" />
     <el-card>
       <div slot="header">
         <span> Redis列表({{ obj.total }}) </span>
@@ -22,15 +23,13 @@
           </el-table-column>
           <el-table-column width="80" prop="version" label="版本" />
           <el-table-column width="80" prop="port" label="端口号" />
-          <el-table-column width="120" prop="inner_ip" label="内网IP" />
-          <el-table-column width="120" prop="deploy_typ_desc" label="部署类型" />
-          <el-table-column prop="connection" label="连接字符串">
+          <el-table-column width="120" prop="inner_ip" label="内网IP">
             <template slot-scope="{row}">
-              <CopyField :value="row.connection" />
+              <CopyField :value="row.inner_ip" />
             </template>
           </el-table-column>
-          <el-table-column width="100" prop="region_id" label="地域" />
-          <el-table-column width="100" prop="zone_id" label="可用区" />
+          <el-table-column width="120" prop="deploy_typ_desc" label="部署类型" />
+          <el-table-column prop="zone_id" label="可用区" />
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="{row}">
               <router-link
@@ -51,6 +50,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import RedisFilter from './components/Filter'
 import url from '@/api/asset/redis/url'
 import {
   getRedisListApi as getObjListApi,
@@ -58,7 +58,7 @@ import {
 } from '@/api/asset/redis'
 export default {
   name: 'Redis',
-  components: { Pagination, CopyField },
+  components: { Pagination, CopyField, RedisFilter },
   directives: { permission },
   data() {
     return {
@@ -69,6 +69,7 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
+          keyword: '',
           page_num: 1,
           page_size: 10
         }
