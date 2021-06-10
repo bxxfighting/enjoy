@@ -1,5 +1,6 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <EcsFilter :keyword.sync="obj.filter.keyword" @change="getObjList" />
     <el-card>
       <div slot="header">
         <span> ECS列表({{ obj.total }}) </span>
@@ -20,13 +21,13 @@
               <CopyField :value="row.instance_id" />
             </template>
           </el-table-column>
-          <el-table-column prop="inner_ip" label="内网IP">
+          <el-table-column prop="inner_ip" width="120" label="内网IP">
             <template slot-scope="{row}">
               <CopyField :value="row.inner_ip" />
             </template>
           </el-table-column>
-          <el-table-column prop="cpu" label="CPU" />
-          <el-table-column prop="memory" label="内存(M)" />
+          <el-table-column prop="cpu" width="80" label="CPU" />
+          <el-table-column prop="memory" width="100" label="内存(M)" />
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="{row}">
               <router-link
@@ -47,6 +48,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import EcsFilter from './components/Filter'
 import url from '@/api/asset/ecs/url'
 import {
   getEcsListApi as getObjListApi,
@@ -54,7 +56,7 @@ import {
 } from '@/api/asset/ecs'
 export default {
   name: 'Ecs',
-  components: { Pagination, CopyField },
+  components: { Pagination, CopyField, EcsFilter },
   directives: { permission },
   data() {
     return {
@@ -65,6 +67,7 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
+          keyword: '',
           page_num: 1,
           page_size: 10
         }

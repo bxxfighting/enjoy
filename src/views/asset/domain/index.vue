@@ -1,5 +1,6 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <DomainFilter :keyword.sync="obj.filter.keyword" @change="getObjList" />
     <el-card>
       <div slot="header">
         <span> 域名列表({{ obj.total }}) </span>
@@ -15,14 +16,17 @@
               <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
             </template>
           </el-table-column>
-          <el-table-column prop="instance_id" label="实例ID">
+          <el-table-column width="180" prop="typ" label="类型" />
+          <el-table-column width="180" prop="rr" label="RR">
             <template slot-scope="{row}">
-              <CopyField :value="row.instance_id" />
+              <CopyField :value="row.rr" />
             </template>
           </el-table-column>
-          <el-table-column width="80" prop="typ" label="类型" />
-          <el-table-column width="80" prop="rr" label="RR" />
-          <el-table-column width="120" prop="value" label="Value" />
+          <el-table-column prop="value" label="Value">
+            <template slot-scope="{row}">
+              <CopyField :value="row.value" />
+            </template>
+          </el-table-column>
           <el-table-column width="80" prop="enabled" label="是否启用">
             <template slot-scope="{row}">
               <CopyField :value="String(row.enabled)" />
@@ -48,6 +52,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import DomainFilter from './components/Filter'
 import url from '@/api/asset/domain/url'
 import {
   getDomainRecordListApi as getObjListApi,
@@ -55,7 +60,7 @@ import {
 } from '@/api/asset/domain'
 export default {
   name: 'Domain',
-  components: { Pagination, CopyField },
+  components: { Pagination, CopyField, DomainFilter },
   directives: { permission },
   data() {
     return {
@@ -66,6 +71,7 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
+          keyword: '',
           page_num: 1,
           page_size: 10
         }

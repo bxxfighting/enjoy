@@ -1,5 +1,6 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <RdsFilter :keyword.sync="obj.filter.keyword" @change="getObjList" />
     <el-card>
       <div slot="header">
         <span> RDS列表({{ obj.total }}) </span>
@@ -9,28 +10,23 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="name" label="名称">
-            <template slot-scope="{row}">
-              <CopyField :value="row.name" />
-              <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
-            </template>
-          </el-table-column>
           <el-table-column prop="instance_id" label="实例ID">
             <template slot-scope="{row}">
               <CopyField :value="row.instance_id" />
+              <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
             </template>
           </el-table-column>
-          <el-table-column width="100" prop="typ" label="数据库类型" />
-          <el-table-column width="50" prop="version" label="版本" />
+          <el-table-column width="100" prop="typ" label="数据库类型">
+            <template slot-scope="{row}">
+              <span>{{ row.typ }}: {{ row.version }}</span>
+            </template>
+          </el-table-column>
           <el-table-column width="100" prop="db_typ" label="主从类型" />
-          <el-table-column width="50" prop="net_typ" label="EIP/VPC" />
-          <el-table-column width="100" prop="db_net_typ_desc" label="内网/外网" />
           <el-table-column prop="connection" label="连接字符串">
             <template slot-scope="{row}">
               <CopyField :value="row.connection" />
             </template>
           </el-table-column>
-          <el-table-column width="100" prop="region_id" label="地域" />
           <el-table-column width="100" prop="zone_id" label="可用区" />
           <el-table-column prop="desc" label="备注" />
           <el-table-column fixed="right" label="操作" width="80">
@@ -53,6 +49,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import RdsFilter from './components/Filter'
 import url from '@/api/asset/rds/url'
 import {
   getRdsListApi as getObjListApi,
@@ -60,7 +57,7 @@ import {
 } from '@/api/asset/rds'
 export default {
   name: 'Rds',
-  components: { Pagination, CopyField },
+  components: { Pagination, CopyField, RdsFilter },
   directives: { permission },
   data() {
     return {
@@ -71,6 +68,7 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
+          keyword: '',
           page_num: 1,
           page_size: 10
         }

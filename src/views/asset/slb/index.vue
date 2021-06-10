@@ -1,5 +1,6 @@
 <template>
   <div v-loading="loading" class="app-container">
+    <SlbFilter :keyword.sync="obj.filter.keyword" @change="getObjList" />
     <el-card>
       <div slot="header">
         <span> SLB列表({{ obj.total }}) </span>
@@ -48,6 +49,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import CopyField from '@/components/Field/CopyField'
+import SlbFilter from './components/Filter'
 import url from '@/api/asset/slb/url'
 import {
   getSlbListApi as getObjListApi,
@@ -55,7 +57,7 @@ import {
 } from '@/api/asset/slb'
 export default {
   name: 'Slb',
-  components: { Pagination, CopyField },
+  components: { Pagination, CopyField, SlbFilter },
   directives: { permission },
   data() {
     return {
@@ -66,6 +68,7 @@ export default {
         dataList: [],
         obj_id: null,
         filter: {
+          keyword: '',
           page_num: 1,
           page_size: 10
         }
