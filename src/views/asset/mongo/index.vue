@@ -9,28 +9,22 @@
       </div>
       <div>
         <el-table :data="obj.dataList" style="width: 100%">
-          <el-table-column prop="name" label="名称">
+          <el-table-column prop="instance_id" label="实例ID">
             <template slot-scope="{row}">
-              <CopyField :value="row.name" />
+              <CopyField :value="row.instance_id" />
               <el-link class="el-icon-link" :href="row.web_url" target="_blank" />
             </template>
           </el-table-column>
-          <el-table-column width="200" prop="instance_id" label="实例ID">
-            <template slot-scope="{row}">
-              <CopyField :value="row.instance_id" />
-            </template>
-          </el-table-column>
-          <el-table-column width="80" prop="typ" label="类型" />
-          <el-table-column width="50" prop="version" label="版本" />
-          <el-table-column width="120" prop="db_typ" label="复制集/分片" />
-          <el-table-column width="80" prop="net_typ" label="EIP/VPC" />
+          <el-table-column width="180" prop="typ" label="类型" />
+          <el-table-column width="80" prop="version" label="版本" />
+          <el-table-column width="160" prop="db_typ" label="复制集/分片" />
+          <el-table-column width="120" prop="net_typ" label="EIP/VPC" />
           <el-table-column prop="connection" label="连接字符串">
             <template slot-scope="{row}">
               <CopyField :value="row.connection" />
             </template>
           </el-table-column>
-          <el-table-column width="100" prop="region_id" label="地域" />
-          <el-table-column width="100" prop="zone_id" label="可用区" />
+          <el-table-column prop="zone_id" label="可用区" />
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="{row}">
               <router-link
