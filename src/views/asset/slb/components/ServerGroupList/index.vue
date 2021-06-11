@@ -13,6 +13,7 @@
             </template>
           </el-table-column>
           <el-table-column prop="typ_desc" label="类型" />
+          <el-table-column prop="ecs_count" label="ECS数量" />
           <el-table-column fixed="right" label="操作" width="160">
             <template slot-scope="{row}">
               <router-link
