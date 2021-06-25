@@ -33,3 +33,6 @@ export default {
 }
 </script>
 ```
+
+> slot=header用于常显示，slot=body用于折叠内容，header和body均使用el-form的inline模式  
+> 如果slot=body不存在时，则不会显示折叠按钮  

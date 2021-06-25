@@ -6,7 +6,7 @@
           <slot name="header" />
         </el-col>
         <el-col :span="4">
-          <el-button :icon="icon" type="text" size="small" style="float: right; padding: 3px 10px;" @click="changeStatus" />
+          <el-button v-if="$slots.body" :icon="icon" type="text" size="small" style="float: right; padding: 3px 10px;" @click="changeStatus" />
         </el-col>
       </el-row>
     </div>
@@ -49,6 +49,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .el-form-item {
   margin-bottom: 0px;
