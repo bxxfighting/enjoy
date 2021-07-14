@@ -4,7 +4,7 @@
       <el-autocomplete
         id="autocomplete"
         v-model="state"
-        :style="'width: '+width+'px'"
+        :style="'width: '+width.toString()+'px'"
         size="small"
         :fetch-suggestions="_getObjList"
         :placeholder="placeholder"
@@ -18,11 +18,12 @@
       >已选 {{ selectedObjKeys.length }} 个</span>
     </el-row>
     <el-row
-      style="margin-top: 3px"
+      :style="'width: '+(width*multiple).toString()+'px; margin-top: 3px'"
     >
       <el-tag
         v-for="tag in selectedObjList"
         :key="tag.id"
+        style="margin-bottom: 3px; margin-right: 3px"
         size="small"
         closable
         @close="deleteObj(tag)"
@@ -39,10 +40,13 @@ export default {
   props: {
     // 指定输入框宽度
     width: {
-      default: '480'
+      default: 240
+    },
+    multiple: {
+      default: 2
     },
     placeholder: {
-      default: '请输入关键字'
+      default: '请输入关键字搜索'
     },
     // 指定数据对象以哪个值为key
     selectKey: {
@@ -81,6 +85,8 @@ export default {
       if (this.selectedObjList.filter(obj => obj[this.selectKey] === item[this.selectKey]).length === 0) {
         this.selectedObjList.push(item)
         this.selectedObjKeys.push(item[this.selectKey])
+        this.$emit('update:selectedObjs', this.selectedObjList)
+        this.$emit('change', this.selectedObjList)
       }
     },
     deleteObj(item) {
@@ -93,7 +99,7 @@ export default {
       }
     },
     _getObjList(keyword, cb) {
-      this.getObjs(keyword).then(data => {
+      Promise.resolve(this.getObjs(keyword)).then(data => {
         const objList = data.map(item => { return { ...item, value: item[this.name] } })
         for (const obj of objList) {
           if (this.selectedObjKeys.indexOf(obj[this.selectKey]) > -1) {
